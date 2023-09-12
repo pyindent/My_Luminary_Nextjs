@@ -1,5 +1,5 @@
 module.exports = {
-    basePath: '/react/riode/demo-1',
+    basePath: '',
     distDir: 'build',
     trailingSlash: true
 }
