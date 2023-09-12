@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Collapse from 'react-bootstrap/collapse';
+import Collapse from 'react-bootstrap/Collapse';
 
 import { wishlistActions } from '~/store/wishlist';
 import { cartActions } from '~/store/cart';
