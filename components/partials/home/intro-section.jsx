@@ -25,7 +25,7 @@ function IntroSection( props ) {
 
                 <div className="container">
                     <div className="banner-content y-50">
-                        <h4 className="banner-subtitle font-weight-bold ls-l d-flex align-items-center">
+                        {/* <h4 className="banner-subtitle font-weight-bold ls-l d-flex align-items-center">
                             <Reveal keyframes={ fadeInRightShorter } delay={ 200 } duration={ 1000 }>
                                 <span className="d-inline-block">Buy 2 Get</span>
                             </Reveal>
@@ -45,7 +45,7 @@ function IntroSection( props ) {
 
                         <Reveal keyframes={ fadeInUpShorter } delay={ 1800 } duration={ 1000 }>
                             <ALink href="/shop" className="btn btn-dark btn-rounded" >Shop Now<i className="d-icon-arrow-right"></i></ALink>
-                        </Reveal>
+                        </Reveal> */}
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@ function IntroSection( props ) {
 
                 <div className="container">
                     <div className="banner-content y-50 ml-auto text-right">
-                        <Reveal keyframes={ fadeInUp } delay={ 200 } duration={ 700 }>
+                        {/* <Reveal keyframes={ fadeInUp } delay={ 200 } duration={ 700 }>
                             <h4 className="banner-subtitle ls-s mb-1">
                                 <span className="d-block text-uppercase mb-2">Coming soon</span>
 
@@ -83,7 +83,7 @@ function IntroSection( props ) {
 
                         <Reveal keyframes={ fadeInUp } delay={ 1400 } duration={ 1000 }>
                             <ALink href="/shop" className="btn btn-dark btn-rounded">Shop Now<i className="d-icon-arrow-right"></i></ALink>
-                        </Reveal>
+                        </Reveal> */}
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@ function IntroSection( props ) {
 
                 <div className="container">
                     <div className="banner-content x-50 y-50 text-center">
-                        <Reveal keyframes={ fadeIn } delay={ 200 } duration={ 700 }>
+                        {/* <Reveal keyframes={ fadeIn } delay={ 200 } duration={ 700 }>
                             <h4 className="banner-subtitle text-white text-uppercase mb-3 ls-normal">Check out our</h4>
                         </Reveal>
 
@@ -109,7 +109,7 @@ function IntroSection( props ) {
 
                         <Reveal keyframes={ fadeInRightShorter } delay={ 1500 } duration={ 1000 }>
                             <ALink href="/shop" className="btn btn-dark btn-rounded mb-1">Shop Now<i className="d-icon-arrow-right"></i></ALink>
-                        </Reveal>
+                        </Reveal> */}
                     </div>
                 </div>
             </div>
