@@ -152,6 +152,7 @@ export default function Footer () {
                             <ALink href="#" className="social-link social-facebook fab fa-facebook-f"></ALink>
                             <ALink href="#" className="social-link social-twitter fab fa-twitter"></ALink>
                             <ALink href="#" className="social-link social-linkedin fab fa-linkedin-in"></ALink>
+                            <ALink href="#" className="social-link social-youtube fab fa-youtube"></ALink>
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ import { GET_HOME_DATA } from '../server/queries';
 
 // import Home Components
 import NewsletterModal from '~/components/features/modals/newsletter-modal';
+import AgeVerificationModal from '~/components/features/modals/age-verification-modal';
 import IntroSection from '~/components/partials/home/intro-section';
 import ServiceBox from '~/components/partials/home/service-section';
 import CategorySection from '~/components/partials/home/category-section';
@@ -60,7 +61,7 @@ function HomePage() {
 
                 <SmallCollection featured={ featured } latest={ latest } bestSelling={ bestSelling } onSale={ onSale } loading={ loading } />
             </div>
-
+            <AgeVerificationModal />
             <NewsletterModal />
         </div>
     )

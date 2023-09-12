@@ -176,7 +176,8 @@ button.mfp-close {
     .newsletter-popup & ,
     .login-popup &,
     .quickview-modal &,
-    .video-modal & {
+    .video-modal &,
+    .ageverification-popup & {
         top: -25px;
         right: 0;
     }
@@ -203,6 +204,7 @@ button.mfp-close {
         left: calc(50% - 1px);
     }
 }
+
 .pswp__button--arrow--left,
 .mfp-arrow-left {
     left: 10%;
@@ -454,7 +456,7 @@ button.mfp-close {
 }
 
 // Popup - Newsletter
-.newsletter-popup {
+.newsletter-popup, .ageverification-popup {
     display: flex;
     max-width: 72rem;
     text-align: center;
@@ -533,6 +535,12 @@ button.mfp-close {
 }
 .newsletter-content {
     margin-left: auto;
+    max-width: 41.4rem;
+    padding: 7.1rem 4.2rem 5rem;
+}
+
+.ageverification-content {
+    margin: auto;
     max-width: 41.4rem;
     padding: 7.1rem 4.2rem 5rem;
 }
