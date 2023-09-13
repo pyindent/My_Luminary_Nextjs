@@ -20,11 +20,12 @@ import CtaSection from '~/components/partials/home/cta-section';
 import BrandSection from '~/components/partials/home/brand-section';
 import BlogSection from '~/components/partials/home/blog-section';
 import SmallCollection from '~/components/partials/product/small-collection';
+import { bestSellingProducts } from '~/utils/data/tempdata'
 
 function HomePage() {
     const { data, loading, error } = useQuery( GET_HOME_DATA, { variables: { productsCount: 7 } } );
     const featured = data && data.specialProducts.featured;
-    const bestSelling = data && data.specialProducts.bestSelling;
+    const bestSelling = bestSellingProducts;
     const latest = data && data.specialProducts.latest;
     const onSale = data && data.specialProducts.onSale;
     const posts = data && data.posts.data;
