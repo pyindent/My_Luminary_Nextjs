@@ -69,7 +69,7 @@ export default function Header( props ) {
                         </ALink>
 
                         <ALink href="/" className="logo">
-                            <img src='./images/logo.png' alt="logo" width="153" height="44" />
+                            <img src='./images/luminary-logo.svg' alt="logo" width="153" height="44" />
                         </ALink>
 
                         <SearchBox />

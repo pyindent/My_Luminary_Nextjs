@@ -15,7 +15,7 @@ function IntroSection( props ) {
             <div className="banner banner-fixed intro-slide1" style={ { backgroundColor: "#46b2e8" } }>
                 <figure>
                     <LazyLoadImage
-                        src="./images/home/slides/slide1.jpg"
+                        src="./images/home/slides/slide1.png"
                         alt="Intro Slider"
                         effect="opacity"
                         width="auto"
@@ -89,8 +89,14 @@ function IntroSection( props ) {
             </div>
 
             <div className="banner banner-fixed video-banner intro-slide3" style={ { backgroundColor: "#dddee0" } }>
-                <figure>
-                    <video src={ process.env.NEXT_PUBLIC_ASSET_URI + "/uploads/video/video-1.mp4" } width="1903" height="630" autoPlay={ true } muted loop></video>
+            <figure>
+                    <LazyLoadImage
+                        src="./images/home/slides/slide3.jpg"
+                        alt="Intro Slider"
+                        effect="opacity"
+                        width="auto"
+                        height={ 630 }
+                    />
                 </figure>
 
                 <div className="container">
