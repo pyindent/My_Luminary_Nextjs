@@ -58,8 +58,8 @@ export default function NewsletterModal() {
             <div className="newsletter-popup" id="newsletter-popup" style={ { backgroundImage: "url(images/newsletter-popup.jpg)" } }>
                 <div className="newsletter-content">
                     <h4 className="text-uppercase text-dark">Up to <span className="text-primary">20% Off</span></h4>
-                    <h2 className="font-weight-semi-bold">Sign up to <span>RIODE</span></h2>
-                    <p className="text-grey">Subscribe to the Riode eCommerce newsletter to receive timely updates from your favorite products.</p>
+                    <h2 className="font-weight-semi-bold">Sign up to <span>LUMINARY</span></h2>
+                    <p className="text-grey">Subscribe to the LUMINARY eCommerce newsletter to receive timely updates from your favorite products.</p>
                     <form action="#" method="get" className="input-wrapper input-wrapper-inline input-wrapper-round">
                         <input type="email" className="form-control email" name="email" id="email2" placeholder="Email address here..." required aria-label="newsletter"/>
                         <button className="btn btn-dark" type="submit">SUBMIT</button>
