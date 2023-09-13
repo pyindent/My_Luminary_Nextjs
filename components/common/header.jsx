@@ -30,30 +30,9 @@ export default function Header( props ) {
             <div className="header-top">
                 <div className="container">
                     <div className="header-left">
-                        <p className="welcome-msg">Welcome to Riode store message or remove it!</p>
+                        <p className="welcome-msg">Welcome to myluminary store message or remove it!</p>
                     </div>
                     <div className="header-right">
-                        <div className="dropdown">
-                            <ALink href="#">USD</ALink>
-                            <ul className="dropdown-box">
-                                <li><ALink href="#">USD</ALink></li>
-                                <li><ALink href="#">EUR</ALink></li>
-                            </ul>
-                        </div>
-
-                        <div className="dropdown ml-5">
-                            <ALink href="#">ENG</ALink>
-                            <ul className="dropdown-box">
-                                <li>
-                                    <ALink href="#">ENG</ALink>
-                                </li>
-                                <li>
-                                    <ALink href="#">FRH</ALink>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <span className="divider"></span>
                         <ALink href="/pages/contact-us" className="contact d-lg-show"><i className="d-icon-map"></i>Contact</ALink>
                         <ALink href="#" className="help d-lg-show"><i className="d-icon-info"></i> Need Help</ALink>
                         <LoginModal />
@@ -69,7 +48,7 @@ export default function Header( props ) {
                         </ALink>
 
                         <ALink href="/" className="logo">
-                            <img src='./images/luminary-logo.svg' alt="logo" width="153" height="44" />
+                            <img src='./images/luminary-logo.svg' alt="logo" width="153" height="40" />
                         </ALink>
 
                         <SearchBox />
@@ -104,7 +83,7 @@ export default function Header( props ) {
 
                     <div className="header-right">
                         <ALink href="#"><i className="d-icon-card"></i>Special Offers</ALink>
-                        <a href="https://d-themes.com/buynow/riodereact" className="ml-6">Buy Riode!</a>
+                        <a href="https://d-themes.com/buynow/riodereact" className="ml-6">Buy Luminary!</a>
                     </div>
                 </div>
             </div>
