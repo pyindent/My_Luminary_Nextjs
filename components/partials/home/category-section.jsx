@@ -28,7 +28,7 @@ function CategorySection () {
                                     </figure>
 
                                     <div className="category-content">
-                                        <h4 className="category-name font-weight-bold ls-l">For Men's</h4>
+                                        <h4 className="category-name font-weight-bold ls-l">CRAFT FLOWER</h4>
                                     </div>
                                 </ALink>
                             </div>
@@ -48,7 +48,7 @@ function CategorySection () {
                                     </figure>
 
                                     <div className="category-content">
-                                        <h4 className="category-name font-weight-bold ls-l">Accessories</h4>
+                                        <h4 className="category-name font-weight-bold ls-l">SMOKE ACCESSORIES</h4>
                                     </div>
                                 </ALink>
                             </div>
@@ -68,7 +68,7 @@ function CategorySection () {
                                     </figure>
 
                                     <div className="category-content">
-                                        <h4 className="category-name font-weight-bold ls-l">Fashionable Women's</h4>
+                                        <h4 className="category-name font-weight-bold ls-l">SMOKE ACCESSORIES</h4>
                                     </div>
                                 </ALink>
                             </div>
@@ -88,7 +88,7 @@ function CategorySection () {
                                     </figure>
 
                                     <div className="category-content">
-                                        <h4 className="category-name font-weight-bold ls-l">Cosmetic</h4>
+                                        <h4 className="category-name font-weight-bold ls-l">GLASS</h4>
                                     </div>
                                 </ALink>
                             </div>
