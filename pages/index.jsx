@@ -20,7 +20,7 @@ import CtaSection from '~/components/partials/home/cta-section';
 import BrandSection from '~/components/partials/home/brand-section';
 import BlogSection from '~/components/partials/home/blog-section';
 import SmallCollection from '~/components/partials/product/small-collection';
-import { bestSellingProducts } from '~/utils/data/tempdata'
+import { bestSellingProducts, blogs } from '~/utils/data/tempdata'
 
 function HomePage() {
     const { data, loading, error } = useQuery( GET_HOME_DATA, { variables: { productsCount: 7 } } );
@@ -28,7 +28,7 @@ function HomePage() {
     const bestSelling = bestSellingProducts;
     const latest = bestSellingProducts;
     const onSale = bestSellingProducts;
-    const posts = data && data.posts.data;
+    const posts = blogs;
 
     return (
         <div className="main home">
