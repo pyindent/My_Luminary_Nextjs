@@ -59,10 +59,10 @@ export default function AgeVerificationModal() {
                 <div className="ageverification-content">
                     <h2 className="font-weight-semi-bold">Welcome to <span>LUMINARY</span></h2>
                     <h4 className="text-uppercase text-dark">Please verify your age to enter.</h4>
-                    <form action="#" method="get" className="input-wrapper input-wrapper-inline input-wrapper-round">
+                    <form action="#" method="get" className="input-wrapper input-wrapper-inline input-wrapper-round verify-age">
                         <button className="btn btn-primary" type="submit">I am 21 or Older</button>
                     </form>
-                    <form action="#" method="get" className="input-wrapper input-wrapper-inline input-wrapper-round">
+                    <form action="#" method="get" className="input-wrapper input-wrapper-inline input-wrapper-round verify-age">
                         <button className="btn btn-dark" type="submit">I am Under 21</button>
                     </form>
                 </div>

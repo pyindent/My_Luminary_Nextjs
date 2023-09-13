@@ -78,86 +78,7 @@ function MobileMenu( props ) {
                     </li>
 
                     <li>
-                        <Card title="categories" type="mobile" url="/shop">
-                            <ul>
-                                <li>
-                                    <Card title="Variations 1" type="mobile">
-                                        <ul>
-                                            {
-                                                mainMenu.shop.variation1.map( ( item, index ) => (
-                                                    <li key={ `shop-${ item.title }` }>
-                                                        <ALink href={ '/' + item.url }>
-                                                            { item.title }
-                                                            { item.hot ? <span className="tip tip-hot">Hot</span> : "" }
-                                                        </ALink>
-                                                    </li>
-                                                ) )
-                                            }
-                                        </ul>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card title="Variations 2" type="mobile">
-                                        <ul>
-                                            {
-                                                mainMenu.shop.variation2.map( ( item, index ) => (
-                                                    <li key={ `shop-${ item.title }` }>
-                                                        <ALink href={ '/' + item.url }>
-                                                            { item.title }
-                                                            { item.new ? <span className="tip tip-new">New</span> : "" }
-                                                        </ALink>
-                                                    </li>
-                                                ) )
-                                            }
-                                        </ul>
-                                    </Card>
-                                </li>
-                            </ul>
-                        </Card>
-                    </li>
-
-                    <li>
-                        <Card title="Products" type="mobile" url="/product/default/fashionable-leather-satchel">
-                            <ul>
-                                <li>
-                                    <Card title="Product Pages" type="mobile">
-                                        <ul>
-                                            {
-                                                mainMenu.product.pages.map( ( item, index ) => (
-                                                    <li key={ `product-${ item.title }` }>
-                                                        <ALink href={ '/' + item.url }>
-                                                            { item.title }
-                                                            { item.hot ? <span className="tip tip-hot">Hot</span> : "" }
-                                                        </ALink>
-                                                    </li>
-                                                ) )
-                                            }
-                                        </ul>
-                                    </Card>
-                                </li>
-
-                                <li>
-                                    <Card title="Product Layouts" type="mobile">
-                                        <ul>
-                                            {
-                                                mainMenu.product.layout.map( ( item, index ) => (
-                                                    <li key={ `product-${ item.title }` }>
-                                                        <ALink href={ '/' + item.url }>
-                                                            { item.title }
-                                                            { item.new ? <span className="tip tip-new">New</span> : "" }
-                                                        </ALink>
-                                                    </li>
-                                                ) )
-                                            }
-                                        </ul>
-                                    </Card>
-                                </li>
-                            </ul>
-                        </Card>
-                    </li>
-
-                    <li>
-                        <Card title="Pages" type="mobile" url="/pages/about-us">
+                        <Card title="Categories" type="mobile" url="/pages/about-us">
                             <ul>
                                 {
                                     mainMenu.other.map( ( item, index ) => (
@@ -206,27 +127,10 @@ function MobileMenu( props ) {
                         </Card>
                     </li>
 
-                    <li>
-                        <Card title="elements" type="mobile" url="/elements">
-                            <ul>
-                                {
-                                    mainMenu.element.map( ( item, index ) => (
-                                        <li key={ `elements-${ item.title }` }>
-                                            <ALink href={ '/' + item.url }>
-                                                { item.title }
-                                            </ALink>
-                                        </li>
-                                    ) )
-                                }
-                            </ul>
-                        </Card>
-                    </li>
-
-                    <li className="mb-4 border-no"><a href="https://d-themes.com/buynow/riodereact">Buy Riode!</a></li>
-
-                    <li><ALink href={ '/pages/account' }>Login</ALink></li>
-                    <li><ALink href={ '/pages/cart' }>My Cart</ALink></li>
-                    <li><ALink href={ '/pages/wishlist' }>Wishlist</ALink></li>
+                    <li><ALink href={ '/pages/account' }>FAQ's</ALink></li>
+                    <li><ALink href={ '/pages/cart' }>About us</ALink></li>
+                    <li><ALink href={ '/pages/wishlist' }>My Cart</ALink></li>
+                    <li><ALink href={ '/pages/wishlist' }>Contact us</ALink></li>
                 </ul>
             </div>
         </div>

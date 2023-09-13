@@ -20,7 +20,7 @@ function BlogSection ( props ) {
                     <OwlCarousel adClass="owl-theme post-slider" options={ mainSlider6 }>
                         {
                             posts && posts.length ?
-                                posts.slice( 15, 18 ).map( ( post, index ) => (
+                                posts.map( ( post, index ) => (
                                     <React.Fragment key={ "post-eight" + index }>
                                         <div className="blog-post mb-4">
                                             <PostEight post={ post } adClass="overlay-zoom" />

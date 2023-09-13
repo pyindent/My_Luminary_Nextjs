@@ -220,3 +220,102 @@ export const bestSellingProducts = [
         ]
     }
 ]
+
+export const blogs = [
+    {
+        comments: 3,
+        content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi.",
+        date: "2021-03-01",
+        large_picture: [
+            {
+                height: 500,
+                width: 900,
+                url: "/images/posts/post1.jpg"
+            }
+        ],
+        picture: [
+            {
+                height: 500,
+                width: 900,
+                url: "/images/posts/post1.jpg"
+            }
+        ],
+        slug: "explore-fashion-trending-for-women-in-autumn-2021",
+        title: "Explore Fashion Trending For Women In Autumn 2021",
+        type: "image",
+        video: null,
+        __typename: "Post",
+    },
+    {
+        comments: 1,
+        content: "Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue.",
+        date: "2021-03-21",
+        large_picture: [
+            {
+                height: 500,
+                width: 900,
+                url: "/images/posts/post2.jpg"
+            }
+        ],
+        picture: [
+            {
+                height: 500,
+                width: 900,
+                url: "/images/posts/post2.jpg"
+            }
+        ],
+        slug: "complete-set-of-ski-tools-for-everyone",
+        title: "Complete Set of Ski Tools for Everyone",
+        type: "image",
+        video: null,
+        __typename: "Post",
+    },
+    {
+        comments: 1,
+        content: "Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue.",
+        date: "2021-03-29",
+        large_picture: [
+            {
+                height: 500,
+                width: 900,
+                url: "/images/posts/post3.jpg"
+            }
+        ],
+        picture: [
+            {
+                height: 500,
+                width: 900,
+                url: "/images/posts/post3.jpg"
+            }
+        ],
+        slug: "aenean-dignissim-pellentesque-felis",
+        title: "Aenean dignissim pellentesque felis.",
+        type: "image",
+        video: null,
+        __typename: "Post",
+    },
+    {
+        comments: 3,
+        content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi.",
+        date: "2021-03-01",
+        large_picture: [
+            {
+                height: 500,
+                width: 900,
+                url: "/images/posts/post4.jpg"
+            }
+        ],
+        picture: [
+            {
+                height: 500,
+                width: 900,
+                url: "/images/posts/post4.jpg"
+            }
+        ],
+        slug: "explore-fashion-trending-for-women-in-autumn-2021",
+        title: "Explore Fashion Trending For Women In Autumn 2021",
+        type: "image",
+        video: null,
+        __typename: "Post",
+    }
+]
