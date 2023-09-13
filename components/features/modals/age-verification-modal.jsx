@@ -57,7 +57,7 @@ export default function AgeVerificationModal() {
         >
             <div className="ageverification-popup" id="ageverification-popup" style={ { backgroundImage: "url(images/ageverification-popup.jpg)" } }>
                 <div className="ageverification-content">
-                    <h2 className="font-weight-semi-bold">Welcome to <span>RIODE</span></h2>
+                    <h2 className="font-weight-semi-bold">Welcome to <span>LUMINARY</span></h2>
                     <h4 className="text-uppercase text-dark">Please verify your age to enter.</h4>
                     <form action="#" method="get" className="input-wrapper input-wrapper-inline input-wrapper-round">
                         <button className="btn btn-primary" type="submit">I am 21 or Older</button>
