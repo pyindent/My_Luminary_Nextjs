@@ -174,5 +174,49 @@ export const bestSellingProducts = [
                 __typename: "Variant"
             },
         ]
+    },
+    {
+        name: "King Palm",
+        categories: [
+            {
+                name : "SMOKE ACCESSORIES",
+                slug : "smoke-accessories",
+                __typename: "ProductCategory"
+            }
+        ],
+        discount: 0,
+        is_featured: null,
+        is_new: true,
+        pictures: [
+            {
+                url: "/images/products/product5.jpg",
+                height: 300,
+                width: 300,
+                __typename: "Media"
+            }
+        ],
+        price: [25, 35],
+        ratings: 4.5,
+        reviews: 2,
+        short_description: "Experience the royal treatment with King Palm Cones. These premium, hand-rolled cones are meticulously crafted from natural palm leaves, providing a smooth and flavorful smoking experience. Each cone is carefully packed with high-quality, finely ground herbs for your enjoyment. With their slow-burning and easy-to-use design, King Palm Cones offer a convenient and luxurious way to elevate your smoking sessions. Embrace the regal taste and feel the difference with King Palm Cones.        ",
+        slug: "king-palm",
+        small_pictures: null,
+        variants: [
+            {
+                price: 35,
+                sale_price: null,
+                __typename: "Variant"
+            },
+            {
+                price: 25,
+                sale_price: null,
+                __typename: "Variant"
+            },
+            {
+                price: 20,
+                sale_price: null,
+                __typename: "Variant"
+            },
+        ]
     }
 ]

@@ -24,7 +24,7 @@ import { bestSellingProducts } from '~/utils/data/tempdata'
 
 function HomePage() {
     const { data, loading, error } = useQuery( GET_HOME_DATA, { variables: { productsCount: 7 } } );
-    const featured = data && data.specialProducts.featured;
+    const featured = bestSellingProducts;
     const bestSelling = bestSellingProducts;
     const latest = bestSellingProducts;
     const onSale = bestSellingProducts;
