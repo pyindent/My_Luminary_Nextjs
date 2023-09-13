@@ -32,6 +32,10 @@ function MainMenu() {
                 </li>
 
                 <li>
+                    <ALink href="#">BLOG</ALink>
+                </li>
+
+                <li>
                     <ALink href="#">FAQ'S</ALink>
                 </li>
 
