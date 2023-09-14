@@ -19,6 +19,20 @@ export const bestSellingProducts = [
                 __typename: "Media"
             }
         ],
+        large_pictures: [
+            {
+                url: "/images/products/product1.jpg",
+                height: 300,
+                width: 300,
+                __typename: "Media"
+            },
+            {
+                url: "/images/products/product2.jpg",
+                height: 300,
+                width: 300,
+                __typename: "Media"
+            }
+        ],
         price: [40, 60],
         ratings: 4.5,
         reviews: 2,
@@ -56,6 +70,14 @@ export const bestSellingProducts = [
         is_featured: true,
         is_new: true,
         pictures: [
+            {
+                url: "/images/products/product2.jpg",
+                height: 300,
+                width: 300,
+                __typename: "Media"
+            }
+        ],
+        large_pictures: [
             {
                 url: "/images/products/product2.jpg",
                 height: 300,
@@ -107,6 +129,14 @@ export const bestSellingProducts = [
                 __typename: "Media"
             }
         ],
+        large_pictures: [
+            {
+                url: "/images/products/product3.jpg",
+                height: 300,
+                width: 300,
+                __typename: "Media"
+            }
+        ],
         price: [40, 60],
         ratings: 3.5,
         reviews: 2,
@@ -151,6 +181,14 @@ export const bestSellingProducts = [
                 __typename: "Media"
             }
         ],
+        large_pictures: [
+            {
+                url: "/images/products/product4.jpg",
+                height: 300,
+                width: 300,
+                __typename: "Media"
+            }
+        ],
         price: [25, 35],
         ratings: 4.5,
         reviews: 2,
@@ -188,6 +226,14 @@ export const bestSellingProducts = [
         is_featured: null,
         is_new: true,
         pictures: [
+            {
+                url: "/images/products/product5.jpg",
+                height: 300,
+                width: 300,
+                __typename: "Media"
+            }
+        ],
+        large_pictures: [
             {
                 url: "/images/products/product5.jpg",
                 height: 300,

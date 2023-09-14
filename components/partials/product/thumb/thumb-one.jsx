@@ -201,7 +201,7 @@ export default function ThumbOne( props ) {
                 {
                     product.pictures.map( ( item, index ) => (
                         <div className={ `product-thumb` } key={ "thumb - " + index } onClick={ ( e ) => activeHandler( e, index ) }>
-                            <img src={ process.env.NEXT_PUBLIC_ASSET_URI + item.url } alt="product thumbnail"
+                            <img src={ item.url } alt="product thumbnail"
                                 width="109" height="122" />
                         </div>
                     ) )

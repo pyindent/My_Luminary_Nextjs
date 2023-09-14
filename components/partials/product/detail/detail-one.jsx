@@ -23,7 +23,7 @@ function DetailOne( props ) {
     const [ curIndex, setCurIndex ] = useState( -1 );
     const [ cartActive, setCartActive ] = useState( false );
     const [ quantity, setQauntity ] = useState( 1 );
-    let product = data && data.product;
+    let product = data;
 
     // decide if the product is wishlisted
     let isWishlisted, colors = [], sizes = [];
@@ -199,79 +199,6 @@ function DetailOne( props ) {
             </div>
 
             <p className="product-short-desc">{ product.data.short_description }</p>
-
-            {
-                product && product.data.variants.length > 0 ?
-                    <>
-                        {
-                            product.data.variants[ 0 ].color ?
-                                <div className='product-form product-variations product-color'>
-                                    <label>Color:</label>
-                                    <div className='select-box'>
-                                        <select name='color' className='form-control select-color' onChange={ setColorHandler } value={ curColor }>
-                                            <option value="null">Choose an option</option>
-                                            {
-                                                colors.map( item =>
-                                                    !isDisabled( item.name, curSize ) ?
-                                                        <option value={ item.name } key={ "color-" + item.name }>{ item.name }</option> : ''
-                                                )
-                                            }
-                                        </select>
-                                    </div>
-                                </div> : ""
-                        }
-
-                        {
-                            product.data.variants[ 0 ].size ?
-                                <div className='product-form product-variations product-size mb-0 pb-2'>
-                                    <label>Size:</label>
-                                    <div className='product-form-group'>
-                                        <div className='select-box'>
-                                            <select name='size' className='form-control select-size' onChange={ setSizeHandler } value={ curSize }>
-                                                <option value="null">Choose an option</option>
-                                                {
-                                                    sizes.map( item =>
-                                                        !isDisabled( curColor, item.name ) ?
-                                                            <option value={ item.name } key={ "size-" + item.name }>{ item.name }</option> : ''
-                                                    )
-                                                }
-                                            </select>
-                                        </div>
-
-                                        <Collapse in={ 'null' !== curColor || 'null' !== curSize }>
-                                            <div className="card-wrapper overflow-hidden reset-value-button w-100 mb-0">
-                                                <ALink href='#' className='product-variation-clean' onClick={ resetValueHandler }>Clean All</ALink>
-                                            </div>
-                                        </Collapse>
-                                    </div>
-                                </div> : ""
-                        }
-
-                        <div className='product-variation-price'>
-                            <Collapse in={ cartActive && curIndex > -1 }>
-                                <div className="card-wrapper">
-                                    {
-                                        curIndex > -1 ?
-                                            <div className="single-product-price">
-                                                {
-                                                    product.data.variants[ curIndex ].price ?
-                                                        product.data.variants[ curIndex ].sale_price ?
-                                                            <div className="product-price mb-0">
-                                                                <ins className="new-price">${ toDecimal( product.data.variants[ curIndex ].sale_price ) }</ins>
-                                                                <del className="old-price">${ toDecimal( product.data.variants[ curIndex ].price ) }</del>
-                                                            </div>
-                                                            : <div className="product-price mb-0">
-                                                                <ins className="new-price">${ toDecimal( product.data.variants[ curIndex ].price ) }</ins>
-                                                            </div>
-                                                        : ""
-                                                }
-                                            </div> : ''
-                                    }
-                                </div>
-                            </Collapse>
-                        </div>
-                    </> : ''
-            }
 
             <hr className="product-divider"></hr>
 

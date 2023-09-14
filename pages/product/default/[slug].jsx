@@ -13,6 +13,7 @@ import MediaOne from '~/components/partials/product/media/media-one';
 import DetailOne from '~/components/partials/product/detail/detail-one';
 import DescOne from '~/components/partials/product/desc/desc-one';
 import RelatedProducts from '~/components/partials/product/related-products';
+import { bestSellingProducts } from '~/utils/data/tempdata';
 
 import { mainSlider17 } from '~/utils/data/carousel';
 
@@ -20,19 +21,17 @@ function ProductDefault () {
     const slug = useRouter().query.slug;
     const { data, loading, error } = useQuery( GET_PRODUCT, { variables: { slug } } );
     const [ loaded, setLoadingState ] = useState( false );
-    const product = data && data.product.data;
-    const related = data && data.product.related;
+    const product = {data: bestSellingProducts.find((item) => item.slug == slug)};
+    // const related = data && data.product.related;
 
     useEffect( () => {
-        if ( !loading && product )
+        if ( product.data )
             imagesLoaded( 'main' ).on( 'done', function () {
                 setLoadingState( true );
             } ).on( 'progress', function () {
                 setLoadingState( false );
             } );
-        if ( loading )
-            setLoadingState( false )
-    }, [ loading, product ] )
+    }, [ slug ] )
 
     return (
         <main className="main mt-6 single-product">
@@ -48,22 +47,22 @@ function ProductDefault () {
                         <div className="container vertical">
                             <div className="product product-single row mb-7">
                                 <div className="col-md-6 sticky-sidebar-wrapper">
-                                    <MediaOne product={ product } />
+                                    <MediaOne product={ product.data } />
                                 </div>
 
                                 <div className="col-md-6">
-                                    <DetailOne data={ data } />
+                                    <DetailOne data={ product } />
                                 </div>
                             </div>
 
-                            <DescOne product={ product } />
+                            {/* <DescOne product={ product } /> */}
 
-                            <RelatedProducts products={ related } />
+                            <RelatedProducts products={ bestSellingProducts } />
                         </div>
                     </div> : ''
             }
             {
-                loaded && !loading ? ''
+                loaded ? ''
                     :
                     <div className="skeleton-body container mb-10">
                         <div className="row mb-7">
