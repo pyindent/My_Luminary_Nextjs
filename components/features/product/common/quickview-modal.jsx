@@ -15,6 +15,7 @@ import DetailOne from '~/components/partials/product/detail/detail-one';
 import { modalActions } from '~/store/modal';
 
 import { mainSlider3 } from '~/utils/data/carousel';
+import { bestSellingProducts } from '~/utils/data/tempdata';
 
 const customStyles = {
     content: {
@@ -37,12 +38,14 @@ function Quickview( props ) {
 
     const [ loaded, setLoadingState ] = useState( false );
 
-    const { data, loading } = useQuery( GET_PRODUCT, { variables: { slug, onlyData: true } } );
-    const product = data && data.product;
+    const { data, loading } = useQuery( GET_PRODUCT, { variables: { slug: "beyond-riode-original-t-shirt", onlyData: true } } );
+    const product = {data: bestSellingProducts.find((item) => item.slug == slug)};
 
     useEffect( () => {
+        console.log(product)
+        console.log(isOpen)
         setTimeout( () => {
-            if ( !loading && data && isOpen && document.querySelector( '.quickview-modal' ) )
+            if ( product.data && isOpen && document.querySelector( '.quickview-modal' ) )
                 imagesLoaded( '.quickview-modal' ).on( 'done', function () {
                     setLoadingState( true );
                     window.jQuery( '.quickview-modal .product-single-carousel' ).trigger( 'refresh.owl.carousel' );
@@ -50,7 +53,7 @@ function Quickview( props ) {
                     setLoadingState( false );
                 } );
         }, 200 );
-    }, [ data, isOpen ] );
+    }, [ slug, isOpen ] );
 
     if ( slug === '' || !product || !product.data ) return '';
 
@@ -93,9 +96,9 @@ function Quickview( props ) {
                                     product && product.data && product.data.large_pictures.map( ( item, index ) =>
                                         <Magnifier
                                             key={ 'quickview-image-' + index }
-                                            imageSrc={ process.env.NEXT_PUBLIC_ASSET_URI + item.url }
+                                            imageSrc={ item.url }
                                             imageAlt="magnifier"
-                                            largeImageSrc={ process.env.NEXT_PUBLIC_ASSET_URI + item.url }
+                                            largeImageSrc={ item.url }
                                             dragToMove={ false }
                                             mouseActivation="hover"
                                             cursorStyleActive="crosshair"
@@ -108,7 +111,7 @@ function Quickview( props ) {
                     </div>
 
                     <div className="col-md-6">
-                        <DetailOne data={ data } adClass="scrollable pr-3" isNav={ false } />
+                        <DetailOne data={ product } adClass="scrollable pr-3" isNav={ false } />
                     </div>
                 </div>
 
