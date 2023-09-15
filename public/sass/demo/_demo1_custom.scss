@@ -3,12 +3,12 @@
 /* Intro Slider */
 .intro-slider .banner {
     img, video {
-        height: 63rem;
+        height: auto;
         object-fit: cover;
     }
 
     figure { 
-        height: 63rem; 
+        height: auto; 
         overflow: hidden;
     }
 
