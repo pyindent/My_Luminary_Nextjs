@@ -78,12 +78,12 @@ function MobileMenu( props ) {
                     </li>
 
                     <li>
-                        <Card title="Categories" type="mobile" url="/pages/about-us">
+                        <Card title="Categories" type="mobile" url="/shop">
                             <ul>
                                 {
                                     mainMenu.other.map( ( item, index ) => (
                                         <li key={ `other-${ item.title }` }>
-                                            <ALink href={ '/' + item.url }>
+                                            <ALink href={ '/shop/?category=' + item.slug }>
                                                 { item.title }
                                                 { item.new ? <span className="tip tip-new">New</span> : "" }
                                             </ALink>
@@ -127,10 +127,10 @@ function MobileMenu( props ) {
                         </Card>
                     </li>
 
-                    <li><ALink href={ '/pages/account' }>FAQ's</ALink></li>
-                    <li><ALink href={ '/pages/cart' }>About us</ALink></li>
+                    <li><ALink href={ `/pages/faqs` }>FAQ's</ALink></li>
+                    <li><ALink href={ '/pages/about-us' }>About us</ALink></li>
                     <li><ALink href={ '/pages/wishlist' }>My Cart</ALink></li>
-                    <li><ALink href={ '/pages/wishlist' }>Contact us</ALink></li>
+                    <li><ALink href={ '/pages/contact-us' }>Contact us</ALink></li>
                 </ul>
             </div>
         </div>
