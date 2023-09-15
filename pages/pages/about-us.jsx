@@ -52,7 +52,7 @@ function AboutUs() {
                 style={ { backgroundImage: `url( ./images/page-header/about-us.jpg )`, backgroundColor: "#3C63A4" } }>
                 <h3 className="page-subtitle font-weight-bold">Welcome to LUMINARY</h3>
                 <h1 className="page-title font-weight-bold lh-1 text-white text-capitalize">Our Services</h1>
-                <p className="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br /> nec sagittis sem nibh id elit.</p>
+                <p className="page-desc text-white mb-0">Step into Luminary, where we redefine the cannabis experience as an art gallery and gifting destination.</p>
             </div>
 
             <div className="page-content mt-10 pt-10">
@@ -64,7 +64,7 @@ function AboutUs() {
                                     <h5 className="section-subtitle lh-2 ls-md font-weight-normal">01. What We Do</h5>
                                     <h3 className="section-title lh-1 font-weight-bold">Provide perfect and practical services
                                     </h3>
-                                    <p className="section-desc">Lorem quis bibendum auctar, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
+                                    <p className="section-desc"> Immerse yourself in the world of graffiti and street art while browsing our diverse collection of digital prints crafted by local artists. But that's not all – we also offer a unique cannabis gifting service that sets us apart.</p>
                                 </div>
                                 <div className="col-lg-8 ">
                                     <div className="row">
@@ -79,7 +79,7 @@ function AboutUs() {
                                                     ) }
                                                 </CountUp>
                                                 <h5 className="count-title font-weight-bold text-body ls-md">Business Year</h5>
-                                                <p className="text-grey mb-0">Lorem ipsum dolor sit<br />amet, conctetur adipisci elit. viverra erat orci.</p>
+                                                <p className="text-grey mb-0">Step into Luminary, where we redefine the cannabis experience as an art gallery and gifting destination.</p>
                                             </div>
                                         </div>
                                         <div className="col-md-4 mb-4">
@@ -92,8 +92,8 @@ function AboutUs() {
                                                         </div>
                                                     ) }
                                                 </CountUp>
-                                                <h5 className="count-title font-weight-bold text-body ls-md">Design Brands</h5>
-                                                <p className="text-grey mb-0">Lorem ipsum dolor sit<br />amet, conctetur adipisci elit. viverra erat orci.</p>
+                                                <h5 className="count-title font-weight-bold text-body ls-md">Products</h5>
+                                                <p className="text-grey mb-0">Is weed legal in D.C.? Absolutely! Under Initiative 71, sharing and gifting cannabis is perfectly legal for adults.</p>
                                             </div>
                                         </div>
                                         <div className="col-md-4 mb-4">
@@ -106,8 +106,8 @@ function AboutUs() {
                                                         </div>
                                                     ) }
                                                 </CountUp>
-                                                <h5 className="count-title font-weight-bold text-body ls-md">Team Members</h5>
-                                                <p className="text-grey mb-0">Lorem ipsum dolor sit<br />amet, conctetur adipisci elit. viverra erat orci.</p>
+                                                <h5 className="count-title font-weight-bold text-body ls-md">Visitors</h5>
+                                                <p className="text-grey mb-0">Visit Luminary, where art meets cannabis, and immerse yourself in a world of creativity, euphoria, and unique gifting options.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -138,9 +138,7 @@ function AboutUs() {
                                     <h5 className="section-subtitle lh-2 ls-md font-weight-normal">02. Happy Customer</h5>
                                     <h3 className="section-title lh-1 font-weight-bold">Provide fashionable and<br />qualifed products</h3>
                                     <p className="section-desc text-grey">
-                                        Already millions of people are very satisfied by thi.<br />
-                                        s page builder and the number is growing more and more. Technolog<br />
-                                        developing, requirements are increasing. Riode has brought.
+                                    Is weed legal in D.C.? Absolutely! Under Initiative 71, sharing and gifting cannabis is perfectly legal for adults. When you visit Luminary, you're not just purchasing cannabis directly; you're acquiring our unique branded merchandise. Our collection includes street art, music albums, virtual gifts, and more. As a bonus, we gift you the cannabis products as a complimentary offering, ensuring a memorable experience.
                                     </p>
                                     <ALink href="#" className="btn btn-dark btn-link btn-underline ls-m">Visit Our Store<i className="d-icon-arrow-right"></i></ALink>
                                 </div>
@@ -157,9 +155,7 @@ function AboutUs() {
                                     <h5 className="section-subtitle lh-2 ls-md font-weight-normal mb-1">03. Our Store</h5>
                                     <h3 className="section-title lh-1 font-weight-bold">Expect Restless<br />Amazing Support</h3>
                                     <p className="section-desc text-grey">
-                                        Already millions of people are very satisfied by thi.<br />
-                                        s page builder and the number is growing more and more. Technolog<br />
-                                        developing, requirements are increasing. Riode has brought.
+                                        At Luminary, we understand the need for convenience. That's why we offer weed delivery services to ensure a hassle-free experience. Simply reach out to us via phone or message, and we'll promptly assist you. Our delivery service requires a quick verification of your age by providing a picture of your ID. Rest assured, we'll swiftly deliver your chosen products to your doorstep, often on the same day or the following day.
                                     </p>
                                     <ALink href="#" className="btn btn-dark btn-link btn-underline ls-m">Get Our Store<i className="d-icon-arrow-right"></i></ALink>
                                 </div>
@@ -212,7 +208,7 @@ function AboutUs() {
                     </section>
                 </Reveal>
 
-                <Reveal keyframes={ fadeIn } delay="50" duration="1000" triggerOnce>
+                {/* <Reveal keyframes={ fadeIn } delay="50" duration="1000" triggerOnce>
                     <section className="team-section pt-8 mt-10 pb-10 mb-6">
                         <div className="container">
                             <h5 className="section-subtitle lh-2 ls-md font-weight-normal mb-1 text-center">05. Our Leaders</h5>
@@ -316,7 +312,7 @@ function AboutUs() {
                             </div>
                         </div>
                     </section>
-                </Reveal>
+                </Reveal> */}
             </div>
         </main>
     )
