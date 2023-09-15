@@ -31,8 +31,8 @@ function MainMenu() {
                     </ul>
                 </li>
 
-                <li>
-                    <ALink href="#">BLOG</ALink>
+                <li className={ pathname === '/blog' ? 'active' : '' }>
+                    <ALink href={ `/blog/classic/` }>BLOG</ALink>
                 </li>
 
                 <li className={ pathname === '/pages/faqs' ? 'active' : '' }>
