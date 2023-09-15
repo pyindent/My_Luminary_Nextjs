@@ -14,14 +14,14 @@ function MainMenu() {
                     <ALink href='/'>HOME</ALink>
                 </li>
 
-                <li className={ `submenu  ${ pathname.includes( '/pages' ) ? 'active' : '' }` }>
-                    <ALink href="#">CATEGORIES</ALink>
+                <li className={ `submenu  ${ pathname.includes( '/shop' ) ? 'active' : '' }` }>
+                    <ALink href="/shop">CATEGORIES</ALink>
 
                     <ul>
                         {
                             mainMenu.other.map( ( item, index ) => (
                                 <li key={ `other-${ item.title }` }>
-                                    <ALink href={ '/' + item.url }>
+                                    <ALink href={ '/shop/?category=' + item.slug }>
                                         { item.title }
                                         { item.new ? <span className="tip tip-new">New</span> : "" }
                                     </ALink>

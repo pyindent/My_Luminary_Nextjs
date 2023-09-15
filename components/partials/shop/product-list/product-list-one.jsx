@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useLazyQuery } from '@apollo/react-hooks';
 
@@ -9,13 +9,14 @@ import Pagination from '~/components/features/pagination';
 
 import withApollo from '~/server/apollo';
 import { GET_PRODUCTS } from '~/server/queries';
+import { bestSellingProducts } from '~/utils/data/tempdata';
 
 function ProductListOne( props ) {
     const { itemsPerRow = 3, type = "left", isToolbox = true } = props;
     const router = useRouter();
     const query = router.query;
     const [ getProducts, { data, loading, error } ] = useLazyQuery( GET_PRODUCTS );
-    const products = data && data.products.data;
+    const [products, setProducts] = useState(bestSellingProducts);
     const gridClasses = {
         3: "cols-2 cols-sm-3",
         4: "cols-2 cols-sm-3 cols-md-4",
@@ -25,7 +26,7 @@ function ProductListOne( props ) {
         8: "cols-2 cols-sm-3 cols-md-4 cols-lg-5 cols-xl-8"
     }
     const perPage = query.per_page ? parseInt( query.per_page ) : 12;
-    const totalPage = data ? parseInt( data.products.total / perPage ) + ( data.products.total % perPage ? 1 : 0 ) : 1;
+    const totalPage = products ? parseInt( products.length / perPage ) + ( products.length % perPage ? 1 : 0 ) : 1;
     const page = query.page ? query.page : 1;
     const gridType = query.type ? query.type : 'grid';
 
@@ -45,6 +46,12 @@ function ProductListOne( props ) {
                 to: perPage * page
             }
         } );
+        if(query.category){
+            console.log(query.category)
+            setProducts(bestSellingProducts.filter(item=> item.categories[0].slug == query.category))
+        }else{
+            setProducts(bestSellingProducts)
+        }
     }, [ query ] )
 
     return (
@@ -94,10 +101,10 @@ function ProductListOne( props ) {
             }
 
             {
-                data && data.products.total > 0 ?
+                products && products.length > 0 ?
                     <div className="toolbox toolbox-pagination">
                         {
-                            data && <p className="show-info">Showing <span>{ perPage * ( page - 1 ) + 1 } - { Math.min( perPage * page, data.products.total ) } of { data.products.total }</span>Products</p>
+                            products && <p className="show-info">Showing <span>{ perPage * ( page - 1 ) + 1 } - { Math.min( perPage * page, products.length ) } of { products.length }</span>Products</p>
                         }
 
                         <Pagination totalPage={ totalPage } />

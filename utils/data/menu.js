@@ -138,47 +138,47 @@ export const mainMenu = {
     "other": [
         {
             "title": "CRAFT FLOWER",
-            "url": "pages/about-us"
+            "slug": "craft-flower"
         },
         {
             "title": "LIVING SOIL FLOWER",
-            "url": "pages/contact-us"
+            "slug": "living-soil-flower"
         },
         {
             "title": "PRE-ROLLS",
-            "url": "pages/account"
+            "slug": "pre-rolls"
         },
         {
             "title": "VAPORIZER CARTRIDGES - 1G",
-            "url": "pages/faqs"
+            "slug": "vaporizer-cartridges"
         },
         {
             "title": "ALL-IN-ONE VAPORIZERS",
-            "url": "pages/404"
+            "slug": "all-in-one-vaporizers"
         },
         {
             "title": "EDIBLES",
-            "url": "pages/coming-soon"
+            "slug": "edibles"
         },
         {
             "title": "CONCENTRATES",
-            "url": "pages/coming-soon"
+            "slug": "concentrates"
         },
         {
             "title": "MUSHROOMS",
-            "url": "pages/coming-soon"
+            "slug": "mushrooms"
         },
         {
             "title": "CBD",
-            "url": "pages/coming-soon"
+            "slug": "cbd"
         },
         {
             "title": "GLASS",
-            "url": "pages/coming-soon"
+            "slug": "glass"
         },        
         {
             "title": "SMOKE ACCESSORIES",
-            "url": "pages/coming-soon"
+            "slug": "smoke-accessories"
         }
     ],
     "blog": [
