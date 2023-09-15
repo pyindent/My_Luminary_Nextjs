@@ -40,152 +40,33 @@ function ComingSoon() {
                                     <h2 className="title pl-2 pr-2 ls-m text-left">Customer Management</h2>
 
                                     <Accordion adClass="accordion-border accordion-boxed accordion-plus">
-                                        <Card title="How can add vendor role to the customer?" expanded={ true }>
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.</p>
+                                        <Card title="How do I place an order?" expanded={ true }>
+                                            <p className="mb-0">Ordering is easy! Simply select a package, choose the type of gift you want, and pick your preferred delivery time.</p>
                                         </Card>
 
-                                        <Card title="What benefits a customer can take?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                                    justo eget felis facilisis fermentum.</p>
+                                        <Card title="When will I receive my delivery?">
+                                            <p className="mb-0">Rest assured, your delivery will arrive promptly. All orders are fulfilled within 1 hour of placing them, ensuring you receive your package within the specific hour you've chosen..</p>
                                         </Card>
 
-                                        <Card title="How to change customer's address?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
+                                        <Card title="What if I don't live in DC?">
+                                            <p className="mb-0">Not a problem! We're flexible with our delivery locations. Even if you reside outside of DC, we can still arrange a convenient delivery for you within the city's boundaries.</p>
                                         </Card>
                                     </Accordion>
                                 </div>
 
-                                <div className="col-md-6 mt-10">
-                                    <h2 className="title pl-2 pr-2 ls-m">Product Type</h2>
-                                    <Accordion adClass="accordion-border accordion-boxed accordion-plus">
-                                        <Card title="What is difference between simple & variable product?" expanded={ true }>
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
-                                        </Card>
-
-                                        <Card title="How to buy several products at once?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                                    justo eget felis facilisis fermentum.</p>
-                                        </Card>
-
-                                        <Card title="How to add downloadable product?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                                    justo eget felis facilisis fermentum.</p>
-                                        </Card>
-                                    </Accordion>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </Reveal>
-
-                <Reveal keyframes={ fadeIn } delay="100" duration="1000" triggerOnce>
-                    <section>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-6 mt-10">
-                                    <h2 className="title pl-2 pr-2 ls-m">Ordering Products</h2>
-
-                                    <Accordion adClass="accordion-border accordion-boxed accordion-plus">
-                                        <Card title="How can a guest order the product?" expanded={ true }>
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
-                                        </Card>
-
-                                        <Card title="What kind of payment methods are available?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
-                                        </Card>
-                                        <Card title="What is benefit of paypal payment?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
-                                        </Card>
-                                        <Card title="How to register as a customer?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
-                                        </Card>
-                                        <Card title="What is the preferable way to buy product?">
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
-                                        </Card>
-                                    </Accordion>
-                                </div>
                                 <div className="col-md-6 mt-10">
                                     <h2 className="title pl-2 pr-2 ls-m">The Others</h2>
-
                                     <Accordion adClass="accordion-border accordion-boxed accordion-plus">
-                                        <Card title="How can I return an purchased item online?" expanded={ true }>
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
+                                        <Card title="What payments are accepted?" expanded={ true }>
+                                            <p className="mb-0">We offer various payment options for your convenience. You can pay either in cash or through Clover, our trusted online payment processor.</p>
                                         </Card>
-                                        <Card title="How to add coupon code?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
+
+                                        <Card title="Initiative 71 and Cannabis Gifting">
+                                            <p className="mb-0">Initiative 71 is DC's marijuana decriminalization law. Under this law, adults over 21 years old are legally allowed to possess up to 2 ounces of marijuana. While the sale of marijuana and THC products is still illegal, it is perfectly legal for one adult to gift up to an ounce to another adult. That's where Luminary comes in! We facilitate the gifting process within the legal boundaries of Initiative 71. For more information on Initiative 71 and its regulations, feel free to explore our dedicated section on our website.</p>
                                         </Card>
-                                        <Card title="How can I find theme style?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
-                                        </Card>
-                                        <Card title="What are the delivery types you can use?">
-                                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit. Donec odio.
-                                            Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            Suspendisse
-                                            urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                            justo eget felis facilisis fermentum.</p>
+
+                                        <Card title="Additional Questions?">
+                                            <p className="mb-0">If you have any further questions or need additional information, don't hesitate to reach out to us.</p>
                                         </Card>
                                     </Accordion>
                                 </div>

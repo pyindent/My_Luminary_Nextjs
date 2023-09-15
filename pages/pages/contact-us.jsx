@@ -47,21 +47,23 @@ function ContactUs () {
                                 <div className="col-lg-3 col-md-4 col-sm-6 ls-m mb-4">
                                     <div className="grey-section d-flex align-items-center h-100">
                                         <div>
-                                            <h4 className="mb-2 text-capitalize">Headquarters</h4>
-                                            <p>1600 Amphitheatre Parkway<br />New York WC1 1BA</p>
-
-                                            <h4 className="mb-2 text-capitalize">Phone Number</h4>
-                                            <p>
-                                                <ALink href="#">1.800.458.56</ALink><br />
-                                                <ALink href="#">1.800.458.56</ALink>
-                                            </p>
-
-                                            <h4 className="mb-2 text-capitalize">Support</h4>
+                                            <h4 className="mb-2 text-capitalize">Email Us:</h4>
                                             <p className="mb-4">
-                                                <ALink href="#">support@your-domain.com</ALink><br />
-                                                <ALink href="#">help@your-domain.com</ALink><br />
-                                                <ALink href="#">Sale</ALink>
+                                                <ALink href="#">info@myluminary.co</ALink><br />
                                             </p>
+
+                                            <h4 className="mb-2 text-capitalize">Chat with Us:</h4>
+                                            <p className="mb-4">
+                                                Live Chat | Available during business hours
+                                            </p>
+
+                                            <h4 className="mb-2 text-capitalize">Hours of Operation:</h4>
+                                            <p className="mb-4">
+                                                Sunday - Saturday | 12:00 PM - 9:00 PM
+                                            </p>
+
+                                            <h4 className="mb-2 text-capitalize">Delivery Zone</h4>
+                                            <p>Due to legal reasons, we are only able to deliver within D.C. limits</p>
                                         </div>
                                     </div>
                                 </div>
