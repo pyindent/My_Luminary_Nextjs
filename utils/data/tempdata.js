@@ -365,3 +365,62 @@ export const blogs = [
         __typename: "Post",
     }
 ]
+
+export const categories = [
+    {
+        "name": "CRAFT FLOWER",
+        "slug": "craft-flower",
+        "__typename" : "ProductCategoryResponse"
+
+    },
+    {
+        "name": "LIVING SOIL FLOWER",
+        "slug": "living-soil-flower",
+        "__typename" : "ProductCategoryResponse"
+    },
+    {
+        "name": "PRE-ROLLS",
+        "slug": "pre-rolls",
+        "__typename" : "ProductCategoryResponse"
+    },
+    {
+        "name": "VAPORIZER CARTRIDGES - 1G",
+        "slug": "vaporizer-cartridges",
+        "__typename" : "ProductCategoryResponse"
+    },
+    {
+        "name": "ALL-IN-ONE VAPORIZERS",
+        "slug": "all-in-one-vaporizers",
+        "__typename" : "ProductCategoryResponse"
+    },
+    {
+        "name": "EDIBLES",
+        "slug": "edibles",
+        "__typename" : "ProductCategoryResponse"
+    },
+    {
+        "name": "CONCENTRATES",
+        "slug": "concentrates",
+        "__typename" : "ProductCategoryResponse"
+    },
+    {
+        "name": "MUSHROOMS",
+        "slug": "mushrooms",
+        "__typename" : "ProductCategoryResponse"
+    },
+    {
+        "name": "CBD",
+        "slug": "cbd",
+        "__typename" : "ProductCategoryResponse"
+    },
+    {
+        "name": "GLASS",
+        "slug": "glass",
+        "__typename" : "ProductCategoryResponse"
+    },        
+    {
+        "name": "SMOKE ACCESSORIES",
+        "slug": "smoke-accessories",
+        "__typename" : "ProductCategoryResponse"
+    }
+]

@@ -17,6 +17,7 @@ import SlideToggle from 'react-slide-toggle';
 
 import filterData from '~/utils/data/shop';
 import { scrollTopHandler } from '~/utils';
+import { categories } from '~/utils/data/tempdata';
 
 function SidebarFilterOne ( props ) {
     const { type = "left", isFeatured = false } = props;
@@ -26,7 +27,7 @@ function SidebarFilterOne ( props ) {
     let tmpPrice = { max: query.max_price ? parseInt( query.max_price ) : 1000, min: query.min_price ? parseInt( query.min_price ) : 0 };
     const [ filterPrice, setPrice ] = useState( tmpPrice );
     const [ isFirst, setFirst ] = useState( true );
-    let sidebarData = data && data.shopSidebarData;
+    let sidebarData = {categories: categories};
     let timerId;
 
     useEffect( () => {
@@ -115,7 +116,7 @@ function SidebarFilterOne ( props ) {
 
             <div className="sidebar-content">
                 {
-                    !loading && sidebarData ?
+                    sidebarData ?
                         <div className="sticky-sidebar">
                             {
                                 type === "boxed" || type === "banner" ? '' :
