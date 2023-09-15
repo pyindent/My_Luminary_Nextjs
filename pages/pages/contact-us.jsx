@@ -91,7 +91,7 @@ function ContactUs () {
                     </section>
                 </Reveal>
 
-                <Reveal keyframes={ fadeIn } delay="50" duration="1000" triggerOnce>
+                {/* <Reveal keyframes={ fadeIn } delay="50" duration="1000" triggerOnce>
                     <section className="store-section mt-6 pt-10 pb-8">
                         <div className="container">
                             <h2 className="title title-center mb-7 text-normal">Our store</h2>
@@ -188,7 +188,7 @@ function ContactUs () {
                             </div>
                         </div>
                     </section>
-                </Reveal>
+                </Reveal> */}
 
                 <Reveal keyframes={ fadeIn } delay="50" duration="1000" triggerOnce>
                 <div className="grey-sectdion google-map" id="googlemaps" style={ { height: "386px" } }>
