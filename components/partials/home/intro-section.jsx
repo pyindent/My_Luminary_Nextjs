@@ -19,7 +19,7 @@ function IntroSection( props ) {
                         alt="Intro Slider"
                         effect="opacity"
                         width="auto"
-                        height={ 630 }
+                        height="auto"
                     />
                 </figure>
 
