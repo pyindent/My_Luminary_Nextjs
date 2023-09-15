@@ -39,8 +39,8 @@ function MainMenu() {
                     <ALink href="#">FAQ'S</ALink>
                 </li>
 
-                <li>
-                    <ALink href={ `/blog/classic` }>ABOUT US</ALink>
+                <li className={ pathname === '/pages/about-us' ? 'active' : '' }>
+                    <ALink href={ `/pages/about-us` }>ABOUT US</ALink>
                 </li>
 
                 <li>
@@ -48,7 +48,7 @@ function MainMenu() {
                 </li>
 
                 <li>
-                    <ALink href="/pages/about-us">CONTACT US</ALink>
+                    <ALink href="#">CONTACT US</ALink>
                 </li>
             </ul>
         </nav>
