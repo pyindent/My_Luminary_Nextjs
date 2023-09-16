@@ -129,7 +129,7 @@ function MobileMenu( props ) {
 
                     <li><ALink href={ `/pages/faqs` }>FAQ's</ALink></li>
                     <li><ALink href={ '/pages/about-us' }>About us</ALink></li>
-                    <li><ALink href={ '/pages/wishlist' }>My Cart</ALink></li>
+                    {/* <li><ALink href={ '/pages/wishlist' }>My Cart</ALink></li> */}
                     <li><ALink href={ '/pages/contact-us' }>Contact us</ALink></li>
                 </ul>
             </div>

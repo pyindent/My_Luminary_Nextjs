@@ -43,9 +43,9 @@ function MainMenu() {
                     <ALink href={ `/pages/about-us` }>ABOUT US</ALink>
                 </li>
 
-                <li>
+                {/* <li>
                     <ALink href={ `/elements` }>MY CART</ALink>
-                </li>
+                </li> */}
 
                 <li className={ pathname === '/pages/contact-us' ? 'active' : '' }>
                     <ALink href={ `/pages/contact-us` }>CONTACT US</ALink>
