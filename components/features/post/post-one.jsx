@@ -20,7 +20,7 @@ function PostOne ( props ) {
                                 <ALink href={ `/blog/single/${ post.slug }` }>
                                     {
                                         isOriginal ? <LazyLoadImage
-                                            src={ process.env.NEXT_PUBLIC_ASSET_URI + post.large_picture[ 0 ].url }
+                                            src={ post.large_picture[ 0 ].url }
                                             alt="post image"
                                             width={ 100 }
                                             height={ post.large_picture[ 0 ].height }
@@ -29,7 +29,7 @@ function PostOne ( props ) {
                                         />
                                             :
                                             <LazyLoadImage
-                                                src={ process.env.NEXT_PUBLIC_ASSET_URI + post.picture[ 0 ].url }
+                                                src={ post.picture[ 0 ].url }
                                                 alt="post image"
                                                 width={ post.picture[ 0 ].width }
                                                 height={ post.picture[ 0 ].height }
@@ -42,14 +42,14 @@ function PostOne ( props ) {
                                 <ALink href={ `/blog/single/${ post.slug }` }>
                                     {
                                         isOriginal ? <img
-                                            src={ process.env.NEXT_PUBLIC_ASSET_URI + post.large_picture[ 0 ].url }
+                                            src={ post.large_picture[ 0 ].url }
                                             alt="post image"
                                             width={ 100 }
                                             height={ post.large_picture[ 0 ].height }
                                         /> :
 
                                             <img
-                                                src={ process.env.NEXT_PUBLIC_ASSET_URI + post.picture[ 0 ].url }
+                                                src={ post.picture[ 0 ].url }
                                                 alt="post image"
                                                 width={ post.picture[ 0 ].width }
                                                 height={ post.picture[ 0 ].height }

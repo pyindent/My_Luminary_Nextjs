@@ -366,6 +366,47 @@ export const blogs = [
     }
 ]
 
+export const postSidebarData = {
+    categories: null,
+    recent: [
+        {
+            title: "Explore Fashion Trending For Women In Autumn 2021",
+            slug: "explore-fashion-trending-for-women-in-autumn-2021",
+            date: "2021-03-01",
+            small_picture: [{
+                height: 150,
+                width: 150,
+                url: "/images/posts/post1.jpg"
+            }
+            ],
+            __typename: "Post"
+        },
+        {
+            title: "Complete Set of Ski Tools for Everyone",
+            slug: "explore-fashion-trending-for-women-in-autumn-2021",
+            date: "2021-03-01",
+            small_picture: [{
+                height: 150,
+                width: 150,
+                url: "/images/posts/post2.jpg"
+            }
+            ],
+            __typename: "Post"
+        },
+        {
+            title: "Explore Fashion IPad And Accessories",
+            slug: "complete-set-of-ski-tools-for-everyone",
+            date: "2021-03-21",
+            small_picture: [{
+                height: 150,
+                width: 150,
+                url: "/images/posts/post3.jpg"
+            }
+            ],
+            __typename: "Post"
+        },
+    ]
+}
 export const categories = [
     {
         "name": "CRAFT FLOWER",
