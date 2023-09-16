@@ -270,7 +270,7 @@ export const bestSellingProducts = [
 export const blogs = [
     {
         comments: 3,
-        content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi.",
+        content: "Immerse yourself in the world of graffiti and street art while browsing our diverse collection of digital prints crafted by local artists. But that's not all – we also offer a unique cannabis gifting service that sets us apart.",
         date: "2021-03-01",
         large_picture: [
             {
@@ -287,14 +287,14 @@ export const blogs = [
             }
         ],
         slug: "explore-fashion-trending-for-women-in-autumn-2021",
-        title: "Explore Fashion Trending For Women In Autumn 2021",
+        title: "Provide perfect and practical services",
         type: "image",
         video: null,
         __typename: "Post",
     },
     {
         comments: 1,
-        content: "Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue.",
+        content: "Is weed legal in D.C.? Absolutely! Under Initiative 71, sharing and gifting cannabis is perfectly legal for adults. When you visit Luminary, you're not just purchasing cannabis directly; you're acquiring our unique branded merchandise. Our collection includes street art, music albums, virtual gifts, and more. As a bonus, we gift you the cannabis products as a complimentary offering, ensuring a memorable experience.",
         date: "2021-03-21",
         large_picture: [
             {
@@ -311,14 +311,14 @@ export const blogs = [
             }
         ],
         slug: "complete-set-of-ski-tools-for-everyone",
-        title: "Complete Set of Ski Tools for Everyone",
+        title: "Expect Restless Amazing Support",
         type: "image",
         video: null,
         __typename: "Post",
     },
     {
         comments: 1,
-        content: "Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue.",
+        content: "At Luminary, we understand the need for convenience. That's why we offer weed delivery services to ensure a hassle-free experience. Simply reach out to us via phone or message, and we'll promptly assist you. Our delivery service requires a quick verification of your age by providing a picture of your ID. Rest assured, we'll swiftly deliver your chosen products to your doorstep, often on the same day or the following day.",
         date: "2021-03-29",
         large_picture: [
             {
@@ -335,14 +335,14 @@ export const blogs = [
             }
         ],
         slug: "aenean-dignissim-pellentesque-felis",
-        title: "Aenean dignissim pellentesque felis.",
+        title: "Provide fashionable and qualifed products",
         type: "image",
         video: null,
         __typename: "Post",
     },
     {
         comments: 3,
-        content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi.",
+        content: "Visit Luminary, where art meets cannabis, and immerse yourself in a world of creativity, euphoria, and unique gifting options. Is weed legal in D.C.? Absolutely! Under Initiative 71, sharing and gifting cannabis is perfectly legal for adults. Step into Luminary, where we redefine the cannabis experience as an art gallery and gifting destination.",
         date: "2021-03-01",
         large_picture: [
             {
@@ -359,7 +359,7 @@ export const blogs = [
             }
         ],
         slug: "explore-fashion-trending-for-women-in-autumn-2021",
-        title: "Explore Fashion Trending For Women In Autumn 2021",
+        title: "Expect Restless Amazing Support",
         type: "image",
         video: null,
         __typename: "Post",
@@ -370,7 +370,7 @@ export const postSidebarData = {
     categories: null,
     recent: [
         {
-            title: "Explore Fashion Trending For Women In Autumn 2021",
+            title: "Provide perfect and practical services",
             slug: "explore-fashion-trending-for-women-in-autumn-2021",
             date: "2021-03-01",
             small_picture: [{
@@ -382,7 +382,7 @@ export const postSidebarData = {
             __typename: "Post"
         },
         {
-            title: "Complete Set of Ski Tools for Everyone",
+            title: "Provide fashionable and qualifed products",
             slug: "explore-fashion-trending-for-women-in-autumn-2021",
             date: "2021-03-01",
             small_picture: [{
@@ -394,7 +394,7 @@ export const postSidebarData = {
             __typename: "Post"
         },
         {
-            title: "Explore Fashion IPad And Accessories",
+            title: "Expect Restless Amazing Support",
             slug: "complete-set-of-ski-tools-for-everyone",
             date: "2021-03-21",
             small_picture: [{
