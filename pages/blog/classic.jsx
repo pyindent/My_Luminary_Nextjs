@@ -12,6 +12,7 @@ import Pagination from '~/components/features/pagination';
 
 import PostOne from '~/components/features/post/post-one';
 import BlogSidebar from '~/components/partials/post/blog-sidebar';
+import { blogs } from '~/utils/data/tempdata';
 
 import { scrollTopHandler } from '~/utils';
 
@@ -22,7 +23,7 @@ function Classic () {
     const showingCount = 8;
     const [ getPosts, { data, loading, error } ] = useLazyQuery( GET_POSTS );
     const [ perPage, setPerPage ] = useState( showingCount );
-    const posts = data && data.posts.data;
+    const posts = blogs;
     const totalPage = data ? parseInt( data.posts.total / perPage ) + ( data.posts.total % perPage ? 1 : 0 ) : 1;
     let page = query.page ? query.page : 1;
 
