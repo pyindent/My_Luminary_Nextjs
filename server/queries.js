@@ -2,6 +2,17 @@ import gql from 'graphql-tag'
 
 export const currentDemo = `"1"`;
 
+export const TEST_USER = gql`
+  query Users {
+    users {
+      _id
+      name
+      email
+      phone
+    }
+  }
+`
+
 const PRODUCT_SIMPLE = gql`
     fragment ProductSimple on Product {
         name
