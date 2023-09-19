@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/react-hooks";
 
 // Import Apollo Server and Query
 import withApollo from '../server/apollo';
-import { GET_HOME_DATA } from '../server/queries';
+import { GET_HOME_DATA, TEST_USER } from '../server/queries';
 
 // import Home Components
 import NewsletterModal from '~/components/features/modals/newsletter-modal';
@@ -23,7 +23,8 @@ import SmallCollection from '~/components/partials/product/small-collection';
 import { bestSellingProducts, blogs } from '~/utils/data/tempdata'
 
 function HomePage() {
-    const { data, loading, error } = useQuery( GET_HOME_DATA, { variables: { productsCount: 7 } } );
+    // const { data, loading, error } = useQuery( GET_HOME_DATA, { variables: { productsCount: 7 } } );
+    const {data, loading, error} = useQuery(TEST_USER);
     const featured = bestSellingProducts;
     const bestSelling = bestSellingProducts;
     const latest = bestSellingProducts;
