@@ -2,13 +2,11 @@ import gql from 'graphql-tag'
 
 export const currentDemo = `"1"`;
 
-export const TEST_USER = gql`
-  query Users {
-    users {
+export const TEST_PRODUCTS = gql`
+  query Products {
+    products {
       _id
-      name
-      email
-      phone
+      title
     }
   }
 `
