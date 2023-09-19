@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/react-hooks";
 
 // Import Apollo Server and Query
 import withApollo from '../server/apollo';
-import { GET_HOME_DATA, TEST_USER } from '../server/queries';
+import { GET_HOME_DATA, TEST_PRODUCTS } from '../server/queries';
 
 // import Home Components
 import NewsletterModal from '~/components/features/modals/newsletter-modal';
@@ -24,7 +24,7 @@ import { bestSellingProducts, blogs } from '~/utils/data/tempdata'
 
 function HomePage() {
     // const { data, loading, error } = useQuery( GET_HOME_DATA, { variables: { productsCount: 7 } } );
-    const {data, loading, error} = useQuery(TEST_USER);
+    const {data, loading, error} = useQuery(TEST_PRODUCTS);
     const featured = bestSellingProducts;
     const bestSelling = bestSellingProducts;
     const latest = bestSellingProducts;
