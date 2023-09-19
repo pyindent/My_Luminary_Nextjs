@@ -6,7 +6,35 @@ export const TEST_PRODUCTS = gql`
   query Products {
     products {
       _id
-      title
+      name
+      price
+      slug
+      ratings
+      reviews
+      stock
+      short_description
+      is_featured
+      is_new
+      until
+      discount
+      variants {
+        price
+        sale_price
+      }
+      pictures {
+        url
+        width
+        height
+      }
+      small_pictures {
+        url
+        width
+        height
+      }
+      categories {
+        title
+        slug
+      }
     }
   }
 `
