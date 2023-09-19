@@ -26,7 +26,7 @@ function HomePage() {
     // const { data, loading, error } = useQuery( GET_HOME_DATA, { variables: { productsCount: 7 } } );
     const {data, loading, error} = useQuery(TEST_PRODUCTS);
     const featured = bestSellingProducts;
-    const bestSelling = bestSellingProducts;
+    const bestSelling = data && data.products;
     const latest = bestSellingProducts;
     const onSale = bestSellingProducts;
     const posts = blogs;

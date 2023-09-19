@@ -13,7 +13,6 @@ const apolloServer = new ApolloServer({
     if (!db) {
       try {
         const dbClient = new MongoClient(process.env.MONGO_DB_URI)
-        console.log(process.env.MONGO_DB_URI)
         await dbClient.connect()
         db = dbClient.db('myluminary_db')
       } catch (e) {
