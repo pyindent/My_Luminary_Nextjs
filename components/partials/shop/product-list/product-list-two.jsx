@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useLazyQuery } from '@apollo/react-hooks';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import withApollo from '~/server/apollo';
+import withApollo from '~/server/apolloClient';
 import { GET_PRODUCTS } from '~/server/queries';
 
 import ToolBox from '~/components/partials/shop/toolbox';

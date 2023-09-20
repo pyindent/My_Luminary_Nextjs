@@ -4,7 +4,7 @@ import { useLazyQuery } from '@apollo/react-hooks';
 import { useRouter } from 'next/router';
 
 // Import Apollo Server and Query
-import withApollo from '~/server/apollo';
+import withApollo from '~/server/apolloClient';
 import { GET_POSTS } from '~/server/queries';
 
 import ALink from '~/components/features/custom-link';

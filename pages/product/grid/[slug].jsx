@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import Helmet from 'react-helmet';
 import imagesLoaded from 'imagesloaded';
 
-import withApollo from '~/server/apollo';
+import withApollo from '~/server/apolloClient';
 import { GET_PRODUCT } from '~/server/queries';
 
 import OwlCarousel from '~/components/features/owl-carousel';

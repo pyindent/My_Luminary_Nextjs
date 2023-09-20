@@ -7,7 +7,7 @@ import ProductTwo from '~/components/features/product/product-two';
 import ProductEight from '~/components/features/product/product-eight';
 import Pagination from '~/components/features/pagination';
 
-import withApollo from '~/server/apollo';
+import withApollo from '~/server/apolloClient';
 import { GET_PRODUCTS } from '~/server/queries';
 import { bestSellingProducts } from '~/utils/data/tempdata';
 

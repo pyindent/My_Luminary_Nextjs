@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Helmet from 'react-helmet';
 
-import withApollo from '~/server/apollo';
+import withApollo from '~/server/apolloClient';
 import { GET_POST } from '~/server/queries';
 
 import ALink from '~/components/features/custom-link';

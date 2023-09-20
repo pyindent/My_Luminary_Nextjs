@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { useLazyQuery } from '@apollo/react-hooks';
 
 // Import Apollo Server and Query
-import withApollo from '~/server/apollo';
+import withApollo from '~/server/apolloClient';
 import { GET_POSTS } from '~/server/queries';
 
 import OwlCarousel from '~/components/features/owl-carousel';

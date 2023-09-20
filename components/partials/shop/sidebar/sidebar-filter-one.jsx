@@ -10,7 +10,7 @@ import OwlCarousel from '~/components/features/owl-carousel';
 
 import SmallProduct from '~/components/features/product/product-sm';
 
-import withApollo from '../../../../server/apollo';
+import withApollo from '../../../../server/apolloClient';
 import { GET_SHOP_SIDEBAR_DATA } from '../../../../server/queries';
 
 import SlideToggle from 'react-slide-toggle';

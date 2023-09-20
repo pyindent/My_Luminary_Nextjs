@@ -1,45 +1,32 @@
-import { ApolloServer } from 'apollo-server-micro';
-import { MongoClient } from 'mongodb';
-import { schema } from './schemas';
+import Cors from "micro-cors";
+import apolloServer from "../../server/apolloServer";
 
-require('dotenv').config()
-
-
-let db = null
-
-const apolloServer = new ApolloServer({
-  schema,
-  context: async () => {
-    if (!db) {
-      try {
-        const dbClient = new MongoClient(process.env.MONGO_DB_URI)
-        await dbClient.connect()
-        db = dbClient.db('myluminary_db')
-      } catch (e) {
-        console.log('--->error while connecting with graphql context (db)', e)
-      }
-    }
-
-    return { db }
-  },
-})
+const cors = Cors();
 
 export const config = {
   api: {
     bodyParser: false,
   },
-}
+};
 
 const startServer = apolloServer.start();
 
-export default async function handler(req, res) {
+export default cors(async (req, res) => {
+  try {
 
-  if (req.method === "OPTIONS") {
-    res.end();
-    return false;
+    if (req.method === "OPTIONS") {
+      res.end();
+      return false;
+    }
+
+    await startServer;
+
+    return await apolloServer.createHandler({
+      path: "/api/graphql/",
+    })(req, res);
+    
+  } catch (e) {
+    console.log('--->error while creating Apollo server handler', e);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
-  await startServer;
-  await apolloServer.createHandler({
-    path: "/api/graphql/",
-  })(req, res);
-}
+});

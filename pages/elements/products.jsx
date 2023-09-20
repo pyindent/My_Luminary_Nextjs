@@ -5,7 +5,7 @@ import Breadcrumb from '~/components/features/breadcrumb';
 import OwlCarousel from '~/components/features/owl-carousel';
 
 import { GET_PRODUCTS } from '~/server/queries';
-import withApollo from '~/server/apollo';
+import withApollo from '~/server/apolloClient';
 
 import ProductOne from '~/components/features/product/product-one';
 import ProductTwo from '~/components/features/product/product-two';

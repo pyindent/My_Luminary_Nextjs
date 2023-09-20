@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 import imagesLoaded from 'imagesloaded';
 
 import { GET_PRODUCT } from '~/server/queries';
-import withApollo from '~/server/apollo';
+import withApollo from '~/server/apolloClient';
 
 import OwlCarousel from '~/components/features/owl-carousel';
 

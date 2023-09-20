@@ -3,7 +3,6 @@ export default {
     products: async (_parent, _args, _context, _info) => {
       try {
         const products = await _context.db.collection("products").find().toArray();
-        console.log(products);
         return products;
       } catch (e) {
         throw e;
