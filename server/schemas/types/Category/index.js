@@ -6,6 +6,7 @@ type Category {
   parent: Category
   picture: Media
   slug: String
+  status: Boolean
   children: [Category]
 }
 
