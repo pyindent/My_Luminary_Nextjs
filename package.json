@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
+    "dev:backend": "next build && next start",
     "dev": "next",
     "build": "next build",
     "start": "next start"

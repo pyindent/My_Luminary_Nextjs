@@ -1,11 +1,12 @@
 export default `
 type Category {
   _id: ID
-  title: String!
+  title: String
   description: String
-  parentId: ID
+  parent: Category
   picture: Media
-  slug: String!
+  slug: String
+  children: [Category]
 }
 
 type Query {
