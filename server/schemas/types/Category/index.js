@@ -27,5 +27,6 @@ input CreateCategoryInput {
 
 type Mutation {
   createCategory(input: CreateCategoryInput!): Category!
+  deleteCategory(_id: ID!): Category!
 }
 `
