@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const CategorySchema = new mongoose.Schema({
+// Check if the 'Category' model already exists
+const Category = mongoose.models.Category || mongoose.model('Category', new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -8,7 +10,7 @@ const CategorySchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  parentId: {
+  parent: {
     type: Schema.Types.ObjectId,
   },
   picture: {
@@ -22,8 +24,6 @@ const CategorySchema = new mongoose.Schema({
     type: String,
     required: true
   }
-});
-
-const Category = mongoose.model('Category', CategorySchema);
+}));
 
 module.exports = Category;

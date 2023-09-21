@@ -1,5 +1,6 @@
 import Cors from "micro-cors";
 import apolloServer from "../../server/apolloServer";
+import connectToDatabase from "../../server/database";
 
 const cors = Cors();
 
@@ -19,6 +20,7 @@ export default cors(async (req, res) => {
       return false;
     }
 
+    await connectToDatabase()
     await startServer;
 
     return await apolloServer.createHandler({

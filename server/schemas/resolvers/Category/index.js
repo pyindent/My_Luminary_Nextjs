@@ -1,8 +1,10 @@
+import Category from '~/server/schemas/models/Category'
+
 export default {
   Query: {
     categories: async (_parent, _args, _context, _info) => {
       try {
-        const categories = await _context.db.collection("categories").find().toArray()
+        const categories = await Category.find()
         return categories;
       } catch (e) {
         throw e;
@@ -12,10 +14,8 @@ export default {
   Category: {
     children: async (parent, _args, _context, _info) => {
       try {
-        const categories = await _context.db
-          .collection("categories")
+        const categories = await Category
           .find({ parent: parent._id })
-          .toArray();
         return categories;
       } catch (e) {
         throw e;
@@ -23,14 +23,23 @@ export default {
     },
     parent: async (parent, _args, _context, _info) => {
       try {
-        const category = await _context.db
-          .collection("categories")
+        const category = await Category
           .find({ _id: parent.parent})
-          .toArray();
         return category[0];
       } catch (e) {
         throw e;
       }
+    }
+  },
+  Mutation: {
+    createCategory: async (_parent, _args, _context, _info) => {
+      const newCategory = await Category.create({
+        title: _args.input.title,
+        description: _args.input.description,
+        status: _args.input.status,
+        slug: _args.input.slug
+      })
+      return newCategory
     }
   }
 }
