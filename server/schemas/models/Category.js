@@ -15,6 +15,9 @@ const CategorySchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'media'
   },
+  status: {
+    type: Boolean
+  },
   slug: {
     type: String,
     required: true

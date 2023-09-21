@@ -22,12 +22,12 @@ import SmallCollection from '~/components/partials/product/small-collection';
 import { bestSellingProducts, blogs } from '~/utils/data/tempdata'
 
 function HomePage() {
-    const { data, loading, error } = useQuery( GET_HOME_DATA, { variables: { productsCount: 7 } } );
+    const { data, loading, error } = useQuery( TEST_PRODUCTS, { variables: { productsCount: 7 } } );
     // const {data, loading, error} = useQuery(TEST_PRODUCTS);
-    const featured = bestSellingProducts;
-    const bestSelling = bestSellingProducts;
-    const latest = bestSellingProducts;
-    const onSale = bestSellingProducts;
+    const featured = data&&data?.products;
+    const bestSelling = data&&data?.products;
+    const latest = data&&data?.products;
+    const onSale = data&&data?.products;
     const posts = blogs;
 
     return (
