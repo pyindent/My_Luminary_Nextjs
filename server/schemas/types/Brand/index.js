@@ -9,6 +9,7 @@ type Brand {
   products: [Product]
 }
 type Query {
+  brand(_id: ID!): Brand!
   brands: [Brand]!
 }
 

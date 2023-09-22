@@ -2,6 +2,13 @@ import Brand from '~/server/schemas/models/Brand'
 
 export default {
     Query: {
+        brand: async (_parent, _args, _context, _info) => {
+            try {
+              return await Brand.findById(_args._id)
+            } catch (e) {
+              throw e;
+            }
+        },
         brands: async (_parent, _args, _context, _info) => {
             try {
                 return await Brand.find()
