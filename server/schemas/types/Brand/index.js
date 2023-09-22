@@ -1,8 +1,10 @@
 export default `
 type Brand {
-  name: String!
+  title: String!
   slug: String!
-  icon: Media
+  url: String
+  picture: Media
+  products: [Product]
 }
 type Query {
   brands: [Brand]!

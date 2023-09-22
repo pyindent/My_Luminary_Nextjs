@@ -3,11 +3,11 @@ type Product {
   _id: ID
   name: String
   slug: ID
+  long_description: String
   short_description: String
   price: [Float]
   until: String
   sku: String
-  stock: Int
   ratings: Float
   reviews: Int
   sale_count: Int

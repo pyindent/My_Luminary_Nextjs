@@ -12,6 +12,7 @@ const Category = mongoose.models.Category || mongoose.model('Category', new mong
   },
   parent: {
     type: Schema.Types.ObjectId,
+    ref: 'category'
   },
   picture: {
     type: Schema.Types.ObjectId,
@@ -25,5 +26,6 @@ const Category = mongoose.models.Category || mongoose.model('Category', new mong
     required: true
   }
 }));
+
 
 module.exports = Category;
