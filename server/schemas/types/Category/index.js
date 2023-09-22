@@ -25,8 +25,18 @@ input CreateCategoryInput {
   status: Boolean
 }
 
+input UpdateCategoryInput {
+  title: String
+  description: String
+  parentId: ID
+  pictureId: ID
+  slug: String
+  status: Boolean
+}
+
 type Mutation {
   createCategory(input: CreateCategoryInput!): Category!
   deleteCategory(_id: ID!): Category!
+  updateCategory(_id: ID!, input: UpdateCategoryInput!): Category!
 }
 `

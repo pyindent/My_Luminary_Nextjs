@@ -33,7 +33,6 @@ export default {
   },
   Mutation: {
     createCategory: async (_parent, _args, _context, _info) => {
-
       const newCategory = await Category.create({
         title: _args.input.title,
         description: _args.input.description,
@@ -42,6 +41,10 @@ export default {
         slug: _args.input.slug
       })
       return newCategory
+    },
+    updateCategory: async(_parent, _args, _context, info) => {
+      const result = await Category.findByIdAndUpdate({_id:_args._id}, {$set:{..._args.input} })
+      return result
     },
     deleteCategory: async (_parent, _args, _context, _info) => {
       const newCategory = await Category.findByIdAndDelete({_id:_args._id})
