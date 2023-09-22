@@ -54,8 +54,8 @@ export default {
       return result
     },
     deleteCategory: async (_parent, _args, _context, _info) => {
-      const newCategory = await Category.findByIdAndDelete({_id:_args._id})
-      return newCategory
+      const deletedCategory = await Category.findByIdAndDelete({_id:_args._id})
+      return deletedCategory
     }
   }
 }
