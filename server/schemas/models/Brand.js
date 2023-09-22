@@ -9,8 +9,11 @@ const Brand = mongoose.models.Brand || mongoose.model('Brand', new mongoose.Sche
     type: String,
     required: true
   },
+  description: {
+    type: String,
+  },
   url: {
-    type: Number,
+    type: String,
   },
   picture: {
     type: mongoose.Schema.Types.ObjectId, 
