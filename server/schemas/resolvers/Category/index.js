@@ -2,6 +2,13 @@ import Category from '~/server/schemas/models/Category'
 
 export default {
   Query: {
+    category: async (_parent, _args, _context, _info) => {
+      try {
+        return await Category.findById(_args._id)
+      } catch (e) {
+        throw e;
+      }
+    },
     categories: async (_parent, _args, _context, _info) => {
       try {
         const categories = await Category.find()

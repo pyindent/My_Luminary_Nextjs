@@ -13,6 +13,7 @@ type Category {
 }
 
 type Query {
+  category(_id: ID!): Category!
   categories: [Category]!
 }
 
@@ -28,8 +29,8 @@ input CreateCategoryInput {
 input UpdateCategoryInput {
   title: String
   description: String
-  parentId: ID
-  pictureId: ID
+  parent: ID
+  picture: ID
   slug: String
   status: Boolean
 }
