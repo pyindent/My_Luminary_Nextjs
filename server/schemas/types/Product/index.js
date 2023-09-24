@@ -2,30 +2,35 @@ export default `
 type Product {
   _id: ID
   name: String
-  slug: ID
+  slug: String
   long_description: String
   short_description: String
-  price: [Float]
-  until: String
-  sku: String
   ratings: Float
   reviews: Int
-  sale_count: Int
-  is_top: Boolean
-  is_new: Boolean
-  is_featured: Boolean
-  small_pictures: [Media]
   pictures: [Media]
-  large_pictures: [Media]
   brands: [Brand]
-  tags: [Tag]
-  categories: [Category]
-  content: String
-  discount: Float
+  category: Category
   variants: [Variant]
 }
 
+type Products {
+  products: [Product!]
+  totalProducts: Int
+}
+
+input ProductsFilters {
+  name: String
+  category: ID
+}
+
+input SearchProductsInput {
+  filter: ProductsFilters!
+  limit: Int
+  skip: Int
+}
+
 type Query {
-  products: [Product]!
+  products(input: SearchProductsInput!): Products!
+  product(_id: ID!): Product!
 }
 `

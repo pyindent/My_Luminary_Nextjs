@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MediaSchema = new mongoose.Schema({
+const Media = mongoose.models.Media || mongoose.model('Media', new mongoose.Schema({
   width: {
     type: Number,
     required: true
@@ -13,8 +13,6 @@ const MediaSchema = new mongoose.Schema({
     type: String,
     required: true
   }
-});
-
-const Media = mongoose.model('Media', MediaSchema);
+}));
 
 module.exports = Media;

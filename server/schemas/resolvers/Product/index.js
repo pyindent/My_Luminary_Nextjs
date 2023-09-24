@@ -1,62 +1,43 @@
+import Product from "../../models/Product"
+import Media from "../../models/Media"
+
 export default {
   Query: {
+    product: async (_parent, _args, _context, _info) => {
+      try{
+        const product = await Product.findById(_args._id)
+        return product
+      } catch (e) {
+        throw e;
+      }
+    },
     products: async (_parent, _args, _context, _info) => {
       try {
-        const products = await _context.db.collection("products").find().toArray();
-        return products;
-      } catch (e) {
-        throw e;
+        const { input } = _args;
+        const { limit = 10, skip = 0, filter = {} } = input;
+        const { name, category } = filter;
+
+        const query = {};
+    
+        if (name) {
+          query.name = { $regex: name, $options: 'i' };
+        }
+    
+        if (category) {
+          query.category = category;
+        }
+    
+      const [products, totalProducts] = await Promise.all([
+        Product.find(query).skip(skip).limit(limit).lean(),
+        Product.countDocuments(query)
+      ]);
+      return {
+        products,
+        totalProducts
       }
-    },
-  },
-  Product: {
-    categories: async (parent, _args, _context, _info) => {
-      try {
-        const categoryIds = parent.categories;
-        const categories = await _context.db
-          .collection("categories")
-          .find({ _id: { $in: categoryIds } })
-          .toArray();
-        return categories;
       } catch (e) {
-        throw e;
+        throw new Error('Failed to get products');
       }
-    },
-    pictures: async (parent, _args, _context, _info) => {
-      try {
-        const pictureIds = parent.pictures;
-        const pictures = await _context.db
-          .collection("media")
-          .find({ _id: { $in: pictureIds } })
-          .toArray();
-        return pictures;
-      } catch (e) {
-        throw e;
-      }
-    },
-    small_pictures: async (parent, _args, _context, _info) => {
-      try {
-        const smallPictureIds = parent.small_pictures;
-        const smallPictures = await _context.db
-          .collection("media")
-          .find({ _id: { $in: smallPictureIds } })
-          .toArray();
-        return smallPictures;
-      } catch (e) {
-        throw e;
-      }
-    },
-    large_pictures: async (parent, _args, _context, _info) => {
-      try {
-        const largePictureIds = parent.large_pictures;
-        const largePictures = await _context.db
-          .collection("media")
-          .find({ _id: { $in: largePictureIds } })
-          .toArray();
-        return largePictures;
-      } catch (e) {
-        throw e;
-      }
-    },
-  },
+    }
+  }
 };
