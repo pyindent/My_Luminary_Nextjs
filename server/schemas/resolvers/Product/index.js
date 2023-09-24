@@ -39,5 +39,21 @@ export default {
         throw new Error('Failed to get products');
       }
     }
+  },
+  Mutation: {
+    createProduct: async(_parent, _args, _context, _info) => {
+      const result = await Product.create({
+        ..._args.input
+      })
+      return result
+    },
+    updateProduct: async(_parent, _args, _context, _info) => {
+      const result = await Product.findByIdAndUpdate({_id:_args._id}, {$set: {..._args.input}});
+      return result
+    },
+    deleteProduct: async (_parent, _args, _context, _info) => {
+      await Product.findByIdAndDelete({_id:_args._id})
+      return "Successfully Removed"
+    }
   }
 };
