@@ -1,6 +1,6 @@
 export default `
 type Product {
-  _id: ID
+  _id: ID!
   name: String
   slug: String
   long_description: String
