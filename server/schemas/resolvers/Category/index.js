@@ -1,4 +1,5 @@
 import Category from '~/server/schemas/models/Category'
+import Media from '../../models/Media';
 
 export default {
   Query: {
@@ -36,6 +37,17 @@ export default {
       } catch (e) {
         throw e;
       }
+    },
+    picture: async (parent, _args, _context, _info) => {
+      try{
+        if (parent.picture){
+          const media = await Media.findById({_id:parent.picture})
+          return media
+        }
+        return null
+      } catch (e) {
+        throw e;
+      }
     }
   },
   Mutation: {
@@ -44,6 +56,7 @@ export default {
         title: _args.input.title,
         description: _args.input.description,
         parent: _args.input.parentId,
+        picture: _args.input.pictureId,
         status: _args.input.status,
         slug: _args.input.slug
       })
