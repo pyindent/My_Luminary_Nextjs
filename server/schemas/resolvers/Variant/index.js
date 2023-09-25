@@ -29,5 +29,12 @@ export default {
       const newVariant = await Variant.create({..._args.input})
       return newVariant
     },
+    updateVariant: async(_parent, _args, _context, _info) => {
+        const updateVariant = await Variant.findByIdAndUpdate({_id:_args._id}, {$set: {..._args.input}})
+        return updateVariant
+    },
+    deleteVariant: async (_parent, _args, _context, _info) => {
+        return await Variant.findByIdAndDelete({_id:_args._id})
+      }
   }
 }
