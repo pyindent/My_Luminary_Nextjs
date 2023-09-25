@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useQuery } from "@apollo/react-hooks";
 // Import Apollo Server and Query
 import withApollo from '../server/apolloClient';
-import { GET_HOME_DATA, TEST_PRODUCTS } from '../server/queries';
+import { GET_HOME_DATA, GET_PRODUCTS, TEST_PRODUCTS } from '../server/queries';
 
 // import Home Components
 import NewsletterModal from '~/components/features/modals/newsletter-modal';
@@ -22,12 +22,12 @@ import SmallCollection from '~/components/partials/product/small-collection';
 import { bestSellingProducts, blogs } from '~/utils/data/tempdata'
 
 function HomePage() {
-    const { data, loading, error } = useQuery( TEST_PRODUCTS, { variables: { productsCount: 7 } } );
+    const { data, loading, error } = useQuery( GET_PRODUCTS, { variables: { productsCount: 7 } } );
     // const {data, loading, error} = useQuery(TEST_PRODUCTS);
-    const featured = data&&data?.products;
-    const bestSelling = data&&data?.products;
-    const latest = data&&data?.products;
-    const onSale = data&&data?.products;
+    const featured = data&&data?.products.products;
+    const bestSelling = data && data?.products.products;
+    const latest = data&&data?.products.products;
+    const onSale = data&&data?.products.products;
     const posts = blogs;
 
     return (

@@ -2,39 +2,35 @@ import gql from 'graphql-tag'
 
 export const currentDemo = `"1"`;
 
-export const TEST_PRODUCTS = gql`
-  query Products {
-    products {
-      _id
-      name
-      price
-      slug
-      ratings
-      reviews
-      stock
-      short_description
-      is_featured
-      is_new
-      until
-      discount
-      variants {
-        price
-        sale_price
-      }
-      pictures {
-        url
-        width
-        height
-      }
-      small_pictures {
-        url
-        width
-        height
-      }
-      categories {
-        title
+export const GET_PRODUCTS = gql`
+  query Products($name: String, $category:ID, $limit: Int, $skip: Int) {
+    products(input: { filter: {name: $name, category:$category}, limit: $limit, skip: $skip }) {
+      products {
+        _id
+        name
         slug
+        long_description
+        short_description
+        ratings
+        reviews
+        pictures {
+            _id
+            bucket
+            key
+        }
+        brands {
+            _id
+        }
+        category {
+            _id
+            title
+        }
+        variants {
+            price
+            sale_price
+        }
       }
+      totalProducts
     }
   }
 `
@@ -97,19 +93,19 @@ const PRODUCT_SMALL = gql`
     }
 `
 
-export const GET_PRODUCTS = gql`
-    query products($search: String, $colors: [String], $sizes: [String], $brands: [String], $min_price: Int, $max_price: Int, $category: String, $tag: String, $sortBy: String, $from: Int, $to: Int, $list: Boolean = false) {
-        products(demo: ${currentDemo }, search: $search, colors: $colors, sizes: $sizes, brands: $brands, min_price: $min_price, max_price: $max_price, category: $category, tag: $tag, sortBy: $sortBy, from: $from, to: $to ) {
-            data {
-                short_description @include(if: $list)
-                ...ProductSimple
+// export const GET_PRODUCTS = gql`
+//     query products($search: String, $colors: [String], $sizes: [String], $brands: [String], $min_price: Int, $max_price: Int, $category: String, $tag: String, $sortBy: String, $from: Int, $to: Int, $list: Boolean = false) {
+//         products(demo: ${currentDemo }, search: $search, colors: $colors, sizes: $sizes, brands: $brands, min_price: $min_price, max_price: $max_price, category: $category, tag: $tag, sortBy: $sortBy, from: $from, to: $to ) {
+//             data {
+//                 short_description @include(if: $list)
+//                 ...ProductSimple
 
-            }
-            total
-        }
-    }
-    ${ PRODUCT_SIMPLE }
-`
+//             }
+//             total
+//         }
+//     }
+//     ${ PRODUCT_SIMPLE }
+// `
 
 export const GET_SPECIAL_PRODUCTS = gql`
     query specialProducts($featured: Boolean = false, $bestSelling: Boolean = false, $topRated: Boolean = false, $onSale: Boolean = false, $count: Int) {

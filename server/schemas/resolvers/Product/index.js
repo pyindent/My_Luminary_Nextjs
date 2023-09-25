@@ -53,8 +53,9 @@ export default {
     },
     variants: async (_parent, _args, _context, _info) => {
       try{
-        const variants = await Variant.find({product: _parent._id})
-        return variants
+        const variantsdata = await Variant.find({product: _parent._id})
+        console.log(variantsdata)
+        return variantsdata
       } catch (e) {
         throw new Error("Failed to get pictures")
       }

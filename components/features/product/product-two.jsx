@@ -3,6 +3,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { connect } from 'react-redux';
 
 import ALink from '~/components/features/custom-link';
+import { storjImage } from '~/server/StorjService';
 
 import { cartActions } from '~/store/cart';
 import { modalActions } from '~/store/modal';
@@ -46,7 +47,7 @@ function ProductTwo( props ) {
                 <ALink href={ `/product/default/${ product.slug }` }>
                     <LazyLoadImage
                         alt="product"
-                        src={ product.pictures[ 0 ].url }
+                        src={ storjImage(product.pictures[ 0 ].bucket, product.pictures[ 0 ].key) }
                         threshold={ 500 }
                         effect="opacity"
                         width="300"
@@ -57,7 +58,7 @@ function ProductTwo( props ) {
                         product.pictures.length >= 2 ?
                             <LazyLoadImage
                                 alt="product"
-                                src={ product.pictures[ 1 ].url }
+                                src={ storjImage(product.variants[ 0 ].picture.bucket, product.variants[ 0 ].picture.key)  }
                                 threshold={ 500 }
                                 width="300"
                                 height="338"
@@ -124,25 +125,25 @@ function ProductTwo( props ) {
 
                 <div className="product-price">
                     {
-                        product.price[ 0 ] !== product.price[ 1 ] ?
+                        product.variants[0].price !== product.variants[0].sale_price ?
                             product.variants.length === 0 || ( product.variants.length > 0 && !product.variants[ 0 ].price ) ?
                                 <>
-                                    <ins className="new-price">${ toDecimal( product.price[ 0 ] ) }</ins>
-                                    <del className="old-price">${ toDecimal( product.price[ 1 ] ) }</del>
+                                    <ins className="new-price">${ toDecimal( product.variants[0].price ) }</ins>
+                                    <del className="old-price">${ toDecimal( product.variants[0].sale_price ) }</del>
                                 </>
                                 :
-                                < del className="new-price">${ toDecimal( product.price[ 0 ] ) } – ${ toDecimal( product.price[ 1 ] ) }</del>
-                            : <ins className="new-price">${ toDecimal( product.price[ 0 ] ) }</ins>
+                                < del className="new-price">${ toDecimal( product.variants[0].price ) } – ${ toDecimal( product.variants[0].sale_price ) }</del>
+                            : <ins className="new-price">${ toDecimal( product.variants[0].price ) }</ins>
                     }
                 </div>
 
                 <div className="ratings-container">
                     <div className="ratings-full">
-                        <span className="ratings" style={ { width: 20 * product.ratings + '%' } }></span>
-                        <span className="tooltiptext tooltip-top">{ toDecimal( product.ratings ) }</span>
+                        <span className="ratings" style={ { width: 20 * product.ratings ?? 5 + '%' } }></span>
+                        <span className="tooltiptext tooltip-top">{ toDecimal( product.ratings ?? 5 ) }</span>
                     </div>
 
-                    <ALink href={ `/product/default/${ product.slug }` } className="rating-reviews">( { product.reviews } reviews )</ALink>
+                    <ALink href={ `/product/default/${ product.slug }` } className="rating-reviews">( { product.reviews ?? 5 } reviews )</ALink>
                 </div>
             </div>
         </div>

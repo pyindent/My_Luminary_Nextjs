@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const variantSchema = new mongoose.Schema({
+const Variant = mongoose.models.Variant || mongoose.model('Variant', new mongoose.Schema({
   picture: {
       type: mongoose.Schema.Types.ObjectId, 
       ref: 'media'
@@ -30,8 +30,6 @@ const variantSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-});
-
-const Variant = mongoose.model('Variant', variantSchema);
+}));
 
 module.exports = Variant;
