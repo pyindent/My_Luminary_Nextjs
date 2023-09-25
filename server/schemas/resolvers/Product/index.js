@@ -50,6 +50,17 @@ export default {
         throw new Error("Failed to get categories")
       }
     },
+    pictures: async (_parent, _args, _context, _info) => {
+      try{
+        if(_parent.pictures && _parent.pictures.length > 0){
+          const medias = await Media.find({_id: {$in: _parent.pictures}})
+          return medias
+        }
+        return []
+      } catch (e) {
+        throw new Error("Failed to get pictures")
+      }
+    }
   },
   Mutation: {
     createProduct: async(_parent, _args, _context, _info) => {
