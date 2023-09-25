@@ -1,4 +1,5 @@
 import Brand from '~/server/schemas/models/Brand'
+import Media from '../../models/Media';
 
 export default {
     Query: {
@@ -19,6 +20,13 @@ export default {
     },
     Brand: {
         products: async (parent, _args, _context, _info) => {
+            return null;
+        },
+        picture: async (parent, _args, _context, _info) => {
+            if(parent.picture){
+                const media = await Media.findById({_id: parent.picture})
+                return media;
+            }
             return null;
         }
     },
