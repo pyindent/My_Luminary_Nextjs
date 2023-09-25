@@ -1,17 +1,22 @@
 const mongoose = require('mongoose');
 
 const variantSchema = new mongoose.Schema({
+  picture: {
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'media'
+  },
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'product'
+  },
   color: {
     type: String,
-    required: true,
   },
   size: {
     type: String,
-    required: true,
   },
   quantity: {
     type: Number,
-    required: true,
   },
   sku: {
     type: String,

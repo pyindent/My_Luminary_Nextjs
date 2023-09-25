@@ -1,6 +1,7 @@
 import Product from "../../models/Product"
 import Media from "../../models/Media"
 import Category from "../../models/Category";
+import Variant from "../../models/Variant";
 
 export default {
   Query: {
@@ -48,6 +49,14 @@ export default {
         return await Category.findById(_id)
       } catch (e){
         throw new Error("Failed to get categories")
+      }
+    },
+    variants: async (_parent, _args, _context, _info) => {
+      try{
+        const variants = await Variant.find({product: _parent._id})
+        return variants
+      } catch (e) {
+        throw new Error("Failed to get pictures")
       }
     },
     pictures: async (_parent, _args, _context, _info) => {
