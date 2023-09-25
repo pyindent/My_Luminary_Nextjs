@@ -1,5 +1,6 @@
 import Product from "../../models/Product"
 import Media from "../../models/Media"
+import Category from "../../models/Category";
 
 export default {
   Query: {
@@ -39,6 +40,16 @@ export default {
         throw new Error('Failed to get products');
       }
     }
+  },
+  Product: {
+    category: async (_parent, _args, _context, _info) => {
+      try{
+        const _id = _parent.category
+        return await Category.findById(_id)
+      } catch (e){
+        throw new Error("Failed to get categories")
+      }
+    },
   },
   Mutation: {
     createProduct: async(_parent, _args, _context, _info) => {

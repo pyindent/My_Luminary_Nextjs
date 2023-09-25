@@ -1,6 +1,6 @@
 export default `
 type Category {
-  _id: ID
+  _id: ID!
   title: String!
   description: String
   parentId: ID
