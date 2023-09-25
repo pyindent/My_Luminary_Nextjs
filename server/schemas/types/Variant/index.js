@@ -11,7 +11,7 @@ type Variant {
 }
 
 type Query {
-    variant(_id: ID!): Variant
+    variant(_id: ID!): Variant!
 }
 
 input CreateVariantInput {
