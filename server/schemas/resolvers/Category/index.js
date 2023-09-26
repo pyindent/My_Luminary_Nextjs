@@ -52,6 +52,13 @@ export default {
   },
   Mutation: {
     createCategory: async (_parent, _args, _context, _info) => {
+
+      // Check if a category with the same title already exists
+      const existingCategory = await Category.findOne({ title: _args.input.title });
+      if (existingCategory) {
+        throw new Error('Category with this title already exists.');
+      }
+
       const newCategory = await Category.create({
         title: _args.input.title,
         description: _args.input.description,
@@ -63,6 +70,17 @@ export default {
       return newCategory
     },
     updateCategory: async(_parent, _args, _context, info) => {
+
+       // Check if a category with the same title already exists
+       const existingCategory = await Category.findOne({
+        title: _args.input.title,
+        _id: { $ne: _args._id }, // Exclude the current category from the check
+      });
+      
+      if (existingCategory) {
+        throw new Error('Category with this title already exists');
+      }
+
       const result = await Category.findByIdAndUpdate({_id:_args._id}, {$set:{..._args.input} })
       return result
     },

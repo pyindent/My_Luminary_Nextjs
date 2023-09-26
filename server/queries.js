@@ -24,6 +24,7 @@ export const GET_PRODUCTS = gql`
         category {
             _id
             title
+            slug
         }
         variants {
             price

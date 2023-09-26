@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useLazyQuery, useQuery } from '@apollo/react-hooks';
 
 import ToolBox from '~/components/partials/shop/toolbox';
 import ProductTwo from '~/components/features/product/product-two';
@@ -15,8 +15,8 @@ function ProductListOne( props ) {
     const { itemsPerRow = 3, type = "left", isToolbox = true } = props;
     const router = useRouter();
     const query = router.query;
-    const [ getProducts, { data, loading, error } ] = useLazyQuery( GET_PRODUCTS );
-    const [products, setProducts] = useState(bestSellingProducts);
+    const { data, loading, error } = useQuery( GET_PRODUCTS );
+    const [products, setProducts] = useState(data && data.products.products);
     const gridClasses = {
         3: "cols-2 cols-sm-3",
         4: "cols-2 cols-sm-3 cols-md-4",
@@ -30,29 +30,28 @@ function ProductListOne( props ) {
     const page = query.page ? query.page : 1;
     const gridType = query.type ? query.type : 'grid';
 
-    useEffect( () => {
-        getProducts( {
-            variables: {
-                search: query.search,
-                colors: query.colors ? query.colors.split( ',' ) : [],
-                sizes: query.sizes ? query.sizes.split( ',' ) : [],
-                brands: query.brands ? query.brands.split( ',' ) : [],
-                min_price: parseInt( query.min_price ),
-                max_price: parseInt( query.max_price ),
-                category: query.category,
-                tag: query.tag,
-                sortBy: query.sortby,
-                from: perPage * ( page - 1 ),
-                to: perPage * page
+    // useEffect( () => {
+    //     if(!loading){
+    //         console.log(loading)
+    //         if(query.category){
+    //             setProducts(data.products.products.filter(item=> item.category.slug == query.category))
+    //         }else{
+    //             setProducts(data.products.products)
+    //         }
+    //     }else {
+    //         getProducts();
+    //     }
+    // }, [ query, loading ] )
+
+    useEffect(() => {
+        if(!loading){
+            if(query.category){
+                data && setProducts(data.products.products.filter(item=> item.category.slug == query.category))
+            }else{
+                data && setProducts(data.products.products)
             }
-        } );
-        if(query.category){
-            console.log(query.category)
-            setProducts(bestSellingProducts.filter(item=> item.categories[0].slug == query.category))
-        }else{
-            setProducts(bestSellingProducts)
         }
-    }, [ query ] )
+    }, [loading, query]) 
 
     return (
         <>
