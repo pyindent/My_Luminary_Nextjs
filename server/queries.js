@@ -35,6 +35,30 @@ export const GET_PRODUCTS = gql`
   }
 `
 
+export const GET_CATEGORIES = gql`
+query Categories {
+    categories {
+      _id
+      title
+      slug
+      status
+      picture {
+        _id
+        bucket
+        key
+      }
+      parent {
+          _id
+          title
+      }
+      children {
+          _id
+          title
+      }
+    }
+}
+`
+
 const PRODUCT_SIMPLE = gql`
     fragment ProductSimple on Product {
         name
