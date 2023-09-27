@@ -60,8 +60,8 @@ query Categories {
 }
 `
 export const GET_SHOP_CATEGORY_DATA = gql`
-query Categories {
-    categories {
+query SideCategories {
+    sideCategories {
       _id
       title
       slug

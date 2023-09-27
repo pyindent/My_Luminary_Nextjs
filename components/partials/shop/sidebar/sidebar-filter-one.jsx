@@ -27,7 +27,7 @@ function SidebarFilterOne ( props ) {
     let tmpPrice = { max: query.max_price ? parseInt( query.max_price ) : 1000, min: query.min_price ? parseInt( query.min_price ) : 0 };
     const [ filterPrice, setPrice ] = useState( tmpPrice );
     const [ isFirst, setFirst ] = useState( true );
-    let sidebarData = data && {categories: data.categories};
+    let sidebarData = data && {categories: data.sideCategories};
     let timerId;
 
     useEffect( () => {

@@ -15,6 +15,7 @@ type Category {
 type Query {
   category(_id: ID!): Category!
   categories: [Category]!
+  sideCategories: [Category]!
 }
 
 input CreateCategoryInput {

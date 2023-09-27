@@ -18,6 +18,14 @@ export default {
         throw e;
       }
     },
+    sideCategories: async(_parent, _args, _context, _info) => {
+      try {
+        const categories = await Category.find({ parent: { $exists: false } });
+        return categories
+      } catch (e) {
+        throw e;
+      }
+    },
   },
   Category: {
     children: async (parent, _args, _context, _info) => {
