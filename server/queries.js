@@ -59,7 +59,23 @@ query Categories {
     }
 }
 `
-
+export const GET_SHOP_CATEGORY_DATA = gql`
+query Categories {
+    categories {
+      _id
+      title
+      slug
+      parent {
+          _id
+          title
+      }
+      children {
+          _id
+          title
+      }
+    }
+}
+`
 const PRODUCT_SIMPLE = gql`
     fragment ProductSimple on Product {
         name

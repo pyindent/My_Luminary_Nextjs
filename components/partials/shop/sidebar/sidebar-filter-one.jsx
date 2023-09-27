@@ -11,7 +11,7 @@ import OwlCarousel from '~/components/features/owl-carousel';
 import SmallProduct from '~/components/features/product/product-sm';
 
 import withApollo from '../../../../server/apolloClient';
-import { GET_SHOP_SIDEBAR_DATA } from '../../../../server/queries';
+import { GET_SHOP_CATEGORY_DATA, GET_SHOP_SIDEBAR_DATA } from '../../../../server/queries';
 
 import SlideToggle from 'react-slide-toggle';
 
@@ -23,11 +23,11 @@ function SidebarFilterOne ( props ) {
     const { type = "left", isFeatured = false } = props;
     const router = useRouter();
     const query = router.query;
-    const { data, loading, error } = useQuery( GET_SHOP_SIDEBAR_DATA, { variables: { demo: 1, featured: true } } );
+    const { data, loading, error } = useQuery( GET_SHOP_CATEGORY_DATA, { variables: { demo: 1, featured: true } } );
     let tmpPrice = { max: query.max_price ? parseInt( query.max_price ) : 1000, min: query.min_price ? parseInt( query.min_price ) : 0 };
     const [ filterPrice, setPrice ] = useState( tmpPrice );
     const [ isFirst, setFirst ] = useState( true );
-    let sidebarData = {categories: categories};
+    let sidebarData = data && {categories: data.categories};
     let timerId;
 
     useEffect( () => {
@@ -137,7 +137,7 @@ function SidebarFilterOne ( props ) {
                                     <ul className="widget-body filter-items search-ul">
                                         {
                                             data && sidebarData.categories.map( ( item, index ) => (
-                                                item.children ?
+                                                item.children && item.children.length > 0 ?
                                                     <li
                                                         key={ item.name + ' - ' + index }
                                                         className={ `with-ul overflow-hidden ${ item.slug === query.category || item.children.findIndex( subCat => subCat.slug === query.category ) > -1 ? 'show' : '' } ` }
@@ -168,9 +168,9 @@ function SidebarFilterOne ( props ) {
                                                     </li> :
                                                     <li
                                                         className={ query.category === item.slug ? 'show' : '' }
-                                                        key={ item.name + ' - ' + index }
+                                                        key={ item.title + ' - ' + index }
                                                     >
-                                                        <ALink href={ { pathname: router.pathname, query: { category: item.slug, grid: query.grid, type: router.query.type ? router.query.type : null } } } scroll={ false }>{ item.name }
+                                                        <ALink href={ { pathname: router.pathname, query: { category: item.slug, grid: query.grid, type: router.query.type ? router.query.type : null } } } scroll={ false }>{ item.title }
                                                         </ALink>
                                                     </li>
                                             ) )
