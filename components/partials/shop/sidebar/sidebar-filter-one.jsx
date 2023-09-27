@@ -145,7 +145,7 @@ function SidebarFilterOne ( props ) {
                                                         <SlideToggle collapsed={ true } >
                                                             { ( { onToggle, setCollapsibleElement, toggleState } ) => (
                                                                 <>
-                                                                    <ALink href={ { pathname: router.pathname, query: { category: item.slug, grid: query.grid, type: router.query.type ? router.query.type : null } } } scroll={ false }>{ item.name }
+                                                                    <ALink href={ { pathname: router.pathname, query: { category: item.slug, grid: query.grid, type: router.query.type ? router.query.type : null } } } scroll={ false }>{ item.title }
                                                                         <i className={ `fas fa-chevron-down ${ toggleState.toLowerCase() }` } onClick={ e => { onToggle(); e.stopPropagation(); e.preventDefault(); } }></i>
                                                                     </ALink>
 
@@ -154,9 +154,9 @@ function SidebarFilterOne ( props ) {
                                                                             <ul style={ { display: "block" } }>
                                                                                 {
                                                                                     item.children.map( ( subItem, index ) =>
-                                                                                        <li key={ subItem.name + ' - ' + index }
+                                                                                        <li key={ subItem.title + ' - ' + index }
                                                                                             className={ `with-ul ${ subItem.slug === query.category ? 'show' : '' } ` }>
-                                                                                            <ALink scroll={ false } href={ { pathname: router.pathname, query: { category: subItem.slug, grid: query.grid, type: router.query.type ? router.query.type : null } } }>{ subItem.name }</ALink>
+                                                                                            <ALink scroll={ false } href={ { pathname: router.pathname, query: { category: subItem.slug, grid: query.grid, type: router.query.type ? router.query.type : null } } }>{ subItem.title }</ALink>
                                                                                         </li>
                                                                                     ) }
                                                                             </ul>

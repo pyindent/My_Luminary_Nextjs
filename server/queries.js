@@ -71,6 +71,7 @@ query Categories {
       }
       children {
           _id
+          slug
           title
       }
     }
