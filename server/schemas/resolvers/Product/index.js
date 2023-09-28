@@ -16,8 +16,13 @@ export default {
     products: async (_parent, _args, _context, _info) => {
       try {
         const { input } = _args;
-        const { limit = 10, skip = 0, filter = {} } = input;
+
+        const limit = input.limit || 6;
+        const skip = input.skip || 0
+        const filter = input.filter || {};
+
         const { name, category } = filter;
+
 
         const query = {};
     
@@ -56,7 +61,6 @@ export default {
     variants: async (_parent, _args, _context, _info) => {
       try{
         const variantsdata = await Variant.find({product: _parent._id})
-        console.log(variantsdata)
         return variantsdata
       } catch (e) {
         throw new Error("Failed to get pictures")

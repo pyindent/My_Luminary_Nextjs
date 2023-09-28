@@ -11,7 +11,7 @@ export default function ToolBox( props ) {
     const query = router.query;
     const gridType = query.type ? query.type : 'grid';
     const sortBy = query.sortby ? query.sortby : 'default';
-    const perPage = query.per_page ? query.per_page : 12;
+    const perPage = query.per_page ? query.per_page : 6;
     let tmp = 0;
 
     useEffect( () => {
@@ -120,6 +120,7 @@ export default function ToolBox( props ) {
                 <div className="toolbox-item toolbox-show select-box text-dark">
                     <label>Show :</label>
                     <select name="count" className="form-control" defaultValue={ perPage } onChange={ e => onChangeAttri( e, 'per_page' ) }>
+                        <option value="12">6</option>
                         <option value="12">12</option>
                         <option value="24">24</option>
                         <option value="36">36</option>

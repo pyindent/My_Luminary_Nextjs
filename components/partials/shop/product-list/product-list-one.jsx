@@ -9,7 +9,6 @@ import Pagination from '~/components/features/pagination';
 
 import withApollo from '~/server/apolloClient';
 import { GET_PRODUCTS } from '~/server/queries';
-import { bestSellingProducts } from '~/utils/data/tempdata';
 
 function ProductListOne( props ) {
     const { itemsPerRow = 3, type = "left", isToolbox = true } = props;
@@ -25,17 +24,18 @@ function ProductListOne( props ) {
         7: "cols-2 cols-sm-3 cols-md-4 cols-lg-5 cols-xl-7",
         8: "cols-2 cols-sm-3 cols-md-4 cols-lg-5 cols-xl-8"
     }
-    const perPage = query.per_page ? parseInt( query.per_page ) : 12;
-    const totalPage = products ? parseInt( products.length / perPage ) + ( products.length % perPage ? 1 : 0 ) : 1;
+    const perPage = query.per_page ? parseInt( query.per_page ) : 6;
+    const totalPage = products ? parseInt( data.products.totalProducts / perPage ) + ( data.products.totalProducts % perPage ? 1 : 0 ) : 1;
     const page = query.page ? query.page : 1;
     const gridType = query.type ? query.type : 'grid';
 
     useEffect(() => {
+        console.log(query)
         getProducts({variables: {
             category: query.category,
             sortby: query.sortby,
-            limit: Number(query.per_page),
-            skip: Number(query.page) - 1
+            limit: perPage,
+            skip: perPage * (page - 1)
         }})
     }, [query]) 
 
@@ -89,7 +89,7 @@ function ProductListOne( props ) {
                 products && products.length > 0 ?
                     <div className="toolbox toolbox-pagination">
                         {
-                            products && <p className="show-info">Showing <span>{ perPage * ( page - 1 ) + 1 } - { Math.min( perPage * page, products.length ) } of { products.length }</span>Products</p>
+                            products && <p className="show-info">Showing <span>{ perPage * ( page - 1 ) + 1 } - { Math.min( perPage * page, data.products.totalProducts ) } of { data.products.totalProducts }</span>Products</p>
                         }
 
                         <Pagination totalPage={ totalPage } />
