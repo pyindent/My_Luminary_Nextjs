@@ -31,9 +31,32 @@ export default {
         }
     
         if (category) {
-          const selectedCategory = await Category.findOne({slug:category})
-          if(selectedCategory) 
-            query.category = selectedCategory._id;
+          const selectedCategory = await Category.aggregate([
+            { $match: { slug: category } },
+            {
+              $graphLookup: {
+                from: 'categories',
+                startWith: '$_id',
+                connectFromField: '_id',
+                connectToField: 'parent',
+                as: 'childrenCategories',
+              },
+            },
+            {
+              $project: {
+                categoryIds: {
+                  $concatArrays: [
+                    ['$_id'],
+                    '$childrenCategories._id',
+                  ],
+                },
+              },
+            },
+          ]);
+        
+          if (selectedCategory.length > 0) {
+            query.category = { $in: selectedCategory[0].categoryIds };
+          }
         }
     
       const [products, totalProducts] = await Promise.all([

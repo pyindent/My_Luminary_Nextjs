@@ -30,7 +30,6 @@ function ProductListOne( props ) {
     const gridType = query.type ? query.type : 'grid';
 
     useEffect(() => {
-        console.log(query)
         getProducts({variables: {
             category: query.category,
             sortby: query.sortby,
