@@ -15,8 +15,8 @@ function ProductListOne( props ) {
     const { itemsPerRow = 3, type = "left", isToolbox = true } = props;
     const router = useRouter();
     const query = router.query;
-    const { data, loading, error, refetch } = useQuery( GET_PRODUCTS );
-    const [products, setProducts] = useState(data && data.products.products);
+    const [getProducts, { data, loading, error }] = useLazyQuery( GET_PRODUCTS );
+    const products = data && data.products.products;
     const gridClasses = {
         3: "cols-2 cols-sm-3",
         4: "cols-2 cols-sm-3 cols-md-4",
@@ -30,29 +30,14 @@ function ProductListOne( props ) {
     const page = query.page ? query.page : 1;
     const gridType = query.type ? query.type : 'grid';
 
-    // useEffect( () => {
-    //     if(!loading){
-    //         console.log(loading)
-    //         if(query.category){
-    //             setProducts(data.products.products.filter(item=> item.category.slug == query.category))
-    //         }else{
-    //             setProducts(data.products.products)
-    //         }
-    //     }else {
-    //         getProducts();
-    //     }
-    // }, [ query, loading ] )
-
     useEffect(() => {
-        console.log(query)
-        if(!loading){
-            if(query.category){
-                data && setProducts(data.products.products.filter(item=> item.category.slug == query.category))
-            }else{
-                data && setProducts(data.products.products)
-            }
-        }
-    }, [loading, query]) 
+        getProducts({variables: {
+            category: query.category,
+            sortby: query.sortby,
+            limit: Number(query.per_page),
+            skip: Number(query.page) - 1
+        }})
+    }, [query]) 
 
     return (
         <>

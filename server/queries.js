@@ -3,8 +3,8 @@ import gql from 'graphql-tag'
 export const currentDemo = `"1"`;
 
 export const GET_PRODUCTS = gql`
-  query Products($name: String, $category:ID, $limit: Int, $skip: Int) {
-    products(input: { filter: {name: $name, category:$category}, limit: $limit, skip: $skip }) {
+  query Products($name: String, $category:String, $limit: Int, $skip: Int, $sortby:String) {
+    products(input: { filter: {name: $name, category:$category}, limit: $limit, skip: $skip, sortby: $sortby }) {
       products {
         _id
         name
