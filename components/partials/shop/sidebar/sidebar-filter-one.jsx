@@ -17,7 +17,6 @@ import SlideToggle from 'react-slide-toggle';
 
 import filterData from '~/utils/data/shop';
 import { scrollTopHandler } from '~/utils';
-import { categories } from '~/utils/data/tempdata';
 
 function SidebarFilterOne ( props ) {
     const { type = "left", isFeatured = false } = props;
@@ -27,7 +26,7 @@ function SidebarFilterOne ( props ) {
     let tmpPrice = { max: query.max_price ? parseInt( query.max_price ) : 1000, min: query.min_price ? parseInt( query.min_price ) : 0 };
     const [ filterPrice, setPrice ] = useState( tmpPrice );
     const [ isFirst, setFirst ] = useState( true );
-    let sidebarData = data && {categories: data.sideCategories};
+    let sidebarData = data && {categories: data.sideCategories, brands: data.brands};
     let timerId;
 
     useEffect( () => {
@@ -207,51 +206,15 @@ function SidebarFilterOne ( props ) {
                             </div>
 
                             <div className="widget widget-collapsible">
-                                <Card title="<h3 class='widget-title'>Size<span class='toggle-btn p-0 parse-content'></span></h3>" type="parse" expanded={ true }>
-                                    <ul className="widget-body filter-items">
-                                        {
-                                            filterData.sizes.map( ( item, index ) =>
-                                                <li
-                                                    className={ containsAttrInUrl( 'sizes', item.slug ) ? 'active' : '' }
-                                                    key={ item + ' - ' + index }
-                                                >
-                                                    <ALink scroll={ false } href={ { pathname: router.pathname, query: { ...query, page: 1, sizes: getUrlForAttrs( 'sizes', item.slug ), type: router.query.type ? router.query.type : null } } }>{ item.name }
-                                                    </ALink>
-                                                </li>
-                                            )
-                                        }
-                                    </ul>
-                                </Card>
-                            </div>
-
-                            <div className="widget widget-collapsible">
-                                <Card title="<h3 class='widget-title'>Color<span class='toggle-btn p-0 parse-content'></span></h3>" type="parse" expanded={ true }>
-                                    <ul className="widget-body filter-items">
-                                        {
-                                            filterData.colors.map( ( item, index ) =>
-                                                <li
-                                                    className={ containsAttrInUrl( 'colors', item.slug ) ? 'active' : '' }
-                                                    key={ item + ' - ' + index }
-                                                >
-                                                    <ALink scroll={ false } href={ { pathname: router.pathname, query: { ...query, page: 1, colors: getUrlForAttrs( 'colors', item.slug ), type: router.query.type ? router.query.type : null } } }>{ item.name }
-                                                    </ALink>
-                                                </li>
-                                            )
-                                        }
-                                    </ul>
-                                </Card>
-                            </div>
-
-                            <div className="widget widget-collapsible">
                                 <Card title="<h3 class='widget-title'>Brand<span class='toggle-btn p-0 parse-content'></span></h3>" type="parse" expanded={ true }>
                                     <ul className="widget-body filter-items">
                                         {
-                                            filterData.brands.map( ( item, index ) =>
+                                            data && sidebarData.brands.map( ( item, index ) =>
                                                 <li
                                                     className={ containsAttrInUrl( 'brands', item.slug ) ? 'active' : '' }
                                                     key={ item + ' - ' + index }
                                                 >
-                                                    <ALink scroll={ false } href={ { pathname: router.pathname, query: { ...query, page: 1, brands: getUrlForAttrs( 'brands', item.slug ), type: router.query.type ? router.query.type : null } } }>{ item.name }
+                                                    <ALink scroll={ false } href={ { pathname: router.pathname, query: { ...query, page: 1, brands: getUrlForAttrs( 'brands', item.slug ), type: router.query.type ? router.query.type : null } } }>{ item.title }
                                                     </ALink>
                                                 </li>
                                             )

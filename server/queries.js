@@ -75,6 +75,11 @@ query SideCategories {
           title
       }
     }
+    brands {
+        _id
+        title
+        slug
+    }
 }
 `
 const PRODUCT_SIMPLE = gql`
