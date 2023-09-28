@@ -26,7 +26,9 @@ export default {
         }
     
         if (category) {
-          query.category = category;
+          const selectedCategory = await Category.findOne({slug:category})
+          if(selectedCategory) 
+            query.category = selectedCategory._id;
         }
     
       const [products, totalProducts] = await Promise.all([

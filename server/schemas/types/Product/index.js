@@ -20,11 +20,12 @@ type Products {
 
 input ProductsFilters {
   name: String
-  category: ID
+  category: String
 }
 
 input SearchProductsInput {
   filter: ProductsFilters!
+  sortby: String
   limit: Int
   skip: Int
 }

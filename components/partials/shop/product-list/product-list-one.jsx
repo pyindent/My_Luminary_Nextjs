@@ -15,7 +15,7 @@ function ProductListOne( props ) {
     const { itemsPerRow = 3, type = "left", isToolbox = true } = props;
     const router = useRouter();
     const query = router.query;
-    const { data, loading, error } = useQuery( GET_PRODUCTS );
+    const { data, loading, error, refetch } = useQuery( GET_PRODUCTS );
     const [products, setProducts] = useState(data && data.products.products);
     const gridClasses = {
         3: "cols-2 cols-sm-3",
@@ -44,6 +44,7 @@ function ProductListOne( props ) {
     // }, [ query, loading ] )
 
     useEffect(() => {
+        console.log(query)
         if(!loading){
             if(query.category){
                 data && setProducts(data.products.products.filter(item=> item.category.slug == query.category))

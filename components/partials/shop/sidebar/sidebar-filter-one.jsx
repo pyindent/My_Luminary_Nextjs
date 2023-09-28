@@ -15,7 +15,6 @@ import { GET_SHOP_CATEGORY_DATA, GET_SHOP_SIDEBAR_DATA } from '../../../../serve
 
 import SlideToggle from 'react-slide-toggle';
 
-import filterData from '~/utils/data/shop';
 import { scrollTopHandler } from '~/utils';
 
 function SidebarFilterOne ( props ) {
