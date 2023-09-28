@@ -21,8 +21,8 @@ type Query {
 input CreateCategoryInput {
   title: String!
   description: String
-  parentId: ID
-  pictureId: ID
+  parent: ID
+  picture: ID
   slug: String!
   status: Boolean
 }

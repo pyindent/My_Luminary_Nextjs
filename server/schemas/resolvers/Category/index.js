@@ -68,12 +68,7 @@ export default {
       }
 
       const newCategory = await Category.create({
-        title: _args.input.title,
-        description: _args.input.description,
-        parent: _args.input.parentId,
-        picture: _args.input.pictureId,
-        status: _args.input.status,
-        slug: _args.input.slug
+        ..._args.input
       })
       return newCategory
     },

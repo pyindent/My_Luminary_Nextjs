@@ -103,12 +103,26 @@ export default {
   },
   Mutation: {
     createProduct: async(_parent, _args, _context, _info) => {
+      // Check if a category with the same title already exists
+      const existingProduct = await Product.findOne({ name: _args.input.name });
+      if (existingProduct) {
+        throw new Error('Product with this name already exists.');
+      }
       const result = await Product.create({
         ..._args.input
       })
       return result
     },
     updateProduct: async(_parent, _args, _context, _info) => {
+       // Check if a category with the same title already exists
+      const existingProduct = await Product.findOne({
+        name: _args.input.name,
+        _id: { $ne: _args._id }, // Exclude the current category from the check
+      });
+
+      if (existingProduct) {
+        throw new Error('Category with this title already exists');
+      }
       const result = await Product.findByIdAndUpdate({_id:_args._id}, {$set: {..._args.input}});
       return result
     },
