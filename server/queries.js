@@ -39,34 +39,67 @@ export const GET_PRODUCTS = gql`
 export const GET_PRODUCT_BY_SLUG = gql`
 query ProductBySlug($slug:String!) {
     productBySlug(slug: $slug) {
-        name
-        slug
-        long_description
-        short_description
-        ratings
-        reviews
-        pictures {
-            _id
-            bucket
-            key
-        }
-        brands {
-            title
+        product {
+            name
             slug
-        }
-        category {
-            _id
-            title
-            slug
-        }
-        variants {
-            picture {
+            long_description
+            short_description
+            ratings
+            reviews
+            pictures {
                 _id
                 bucket
                 key
             }
-            price
-            sale_price
+            brands {
+                title
+                slug
+            }
+            category {
+                _id
+                title
+                slug
+            }
+            variants {
+                picture {
+                    _id
+                    bucket
+                    key
+                }
+                price
+                sale_price
+            }
+        }
+        relatedProducts {
+            name
+            slug
+            long_description
+            short_description
+            ratings
+            reviews
+            pictures {
+                _id
+                bucket
+                key
+            }
+            brands {
+                title
+                slug
+            }
+            category {
+                _id
+                title
+                slug
+            }
+            variants {
+                picture {
+                    _id
+                    bucket
+                    key
+                }
+                price
+                sale_price
+            }
         }
     }
 }

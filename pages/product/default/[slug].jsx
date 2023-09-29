@@ -21,8 +21,8 @@ function ProductDefault () {
     const slug = useRouter().query.slug;
     const { data, loading, error } = useQuery( GET_PRODUCT_BY_SLUG, { variables: { slug } } );
     const [ loaded, setLoadingState ] = useState( false );
-    const product = data && data.productBySlug;
-    // const related = data && data.product.related;
+    const product = data && data.productBySlug.product;
+    const related = data && data.productBySlug.relatedProducts;
 
     // useEffect( () => {
     //     if ( product )
@@ -57,7 +57,7 @@ function ProductDefault () {
 
                             {/* <DescOne product={ product } /> */}
 
-                            {/* <RelatedProducts products={ bestSellingProducts } /> */}
+                            <RelatedProducts products={ related } />
                         </div>
                     </div> : ''
             }

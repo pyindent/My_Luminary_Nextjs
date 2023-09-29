@@ -18,6 +18,11 @@ type Products {
   totalProducts: Int
 }
 
+type ProductDetail {
+  product: Product!
+  relatedProducts: [Product!]
+}
+
 input ProductsFilters {
   name: String
   category: String
@@ -53,7 +58,7 @@ input UpdateProductInput {
 type Query {
   products(input: SearchProductsInput!): Products!
   product(_id: ID!): Product!
-  productBySlug(slug: String!): Product!
+  productBySlug(slug: String!): ProductDetail!
 }
 
 

@@ -16,7 +16,8 @@ export default {
     productBySlug: async (_parent, _args, _context, _info) => {
       try {
         const product = await Product.findOne({slug: _args.slug})
-        return product
+        const relatedProducts = await Product.find({category:product.category})
+        return {product, relatedProducts}
       } catch (e) {
         throw e;
       }
