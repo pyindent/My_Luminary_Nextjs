@@ -57,7 +57,7 @@ function ProductDefault () {
 
                             {/* <DescOne product={ product } /> */}
 
-                            <RelatedProducts products={ related } />
+                            {related && related.length > 0 ? <RelatedProducts products={ related } /> : ''}
                         </div>
                     </div> : ''
             }
