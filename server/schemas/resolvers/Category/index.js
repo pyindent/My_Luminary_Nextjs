@@ -18,10 +18,10 @@ export default {
         throw e;
       }
     },
-    sideCategories: async(_parent, _args, _context, _info) => {
+    sideCategories: async (_parent, _args, _context, _info) => {
       try {
-        const categories = await Category.find({ parent: { $exists: false } });
-        return categories
+        const categories = await Category.find({ $or: [{ parent: { $exists: false } }, { parent: null }] });
+        return categories;
       } catch (e) {
         throw e;
       }
