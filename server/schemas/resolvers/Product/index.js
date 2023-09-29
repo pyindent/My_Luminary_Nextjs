@@ -13,6 +13,14 @@ export default {
         throw e;
       }
     },
+    productBySlug: async (_parent, _args, _context, _info) => {
+      try {
+        const product = await Product.findOne({slug: _args.slug})
+        return product
+      } catch (e) {
+        throw e;
+      }
+    },
     products: async (_parent, _args, _context, _info) => {
       try {
         const { input } = _args;

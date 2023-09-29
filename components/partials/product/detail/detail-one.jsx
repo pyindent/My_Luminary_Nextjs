@@ -13,6 +13,7 @@ import { wishlistActions } from '~/store/wishlist';
 import { cartActions } from '~/store/cart';
 
 import { toDecimal } from '~/utils';
+import { storjImage } from '~/server/StorjService';
 
 function DetailOne( props ) {
     let router = useRouter();
@@ -29,21 +30,21 @@ function DetailOne( props ) {
     let isWishlisted, colors = [], sizes = [];
     isWishlisted = wishlist.findIndex( item => item.slug === product.data.slug ) > -1 ? true : false;
 
-    if ( product.data && product.data.variants.length > 0 ) {
-        if ( product.data.variants[ 0 ].size )
-            product.data.variants.forEach( item => {
-                if ( sizes.findIndex( size => size.name === item.size.name ) === -1 ) {
-                    sizes.push( { name: item.size.name, value: item.size.size } );
-                }
-            } );
+    // if ( product.data && product.data.variants.length > 0 ) {
+    //     if ( product.data.variants[ 0 ].size )
+    //         product.data.variants.forEach( item => {
+    //             if ( sizes.findIndex( size => size.name === item.size.name ) === -1 ) {
+    //                 sizes.push( { name: item.size.name, value: item.size.size } );
+    //             }
+    //         } );
 
-        if ( product.data.variants[ 0 ].color ) {
-            product.data.variants.forEach( item => {
-                if ( colors.findIndex( color => color.name === item.color.name ) === -1 )
-                    colors.push( { name: item.color.name, value: item.color.color } );
-            } );
-        }
-    }
+    //     if ( product.data.variants[ 0 ].color ) {
+    //         product.data.variants.forEach( item => {
+    //             if ( colors.findIndex( color => color.name === item.color.name ) === -1 )
+    //                 colors.push( { name: item.color.name, value: item.color.color } );
+    //         } );
+    //     }
+    // }
 
     useEffect( () => {
         return () => {
@@ -52,22 +53,22 @@ function DetailOne( props ) {
         }
     }, [ product ] )
 
-    useEffect( () => {
-        if ( product.data.variants.length > 0 ) {
-            if ( ( curSize !== 'null' && curColor !== 'null' ) || ( curSize === 'null' && product.data.variants[ 0 ].size === null && curColor !== 'null' ) || ( curColor === 'null' && product.data.variants[ 0 ].color === null && curSize !== 'null' ) ) {
-                setCartActive( true );
-                setCurIndex( product.data.variants.findIndex( item => ( item.size !== null && item.color !== null && item.color.name === curColor && item.size.name === curSize ) || ( item.size === null && item.color.name === curColor ) || ( item.color === null && item.size.name === curSize ) ) );
-            } else {
-                setCartActive( false );
-            }
-        } else {
-            setCartActive( true );
-        }
+    // useEffect( () => {
+    //     if ( product.data.variants.length > 0 ) {
+    //         if ( ( curSize !== 'null' && curColor !== 'null' ) || ( curSize === 'null' && product.data.variants[ 0 ].size === null && curColor !== 'null' ) || ( curColor === 'null' && product.data.variants[ 0 ].color === null && curSize !== 'null' ) ) {
+    //             setCartActive( true );
+    //             setCurIndex( product.data.variants.findIndex( item => ( item.size !== null && item.color !== null && item.color.name === curColor && item.size.name === curSize ) || ( item.size === null && item.color.name === curColor ) || ( item.color === null && item.size.name === curSize ) ) );
+    //         } else {
+    //             setCartActive( false );
+    //         }
+    //     } else {
+    //         setCartActive( true );
+    //     }
 
-        if ( product.stock === 0 ) {
-            setCartActive( false );
-        }
-    }, [ curColor, curSize, product ] )
+    //     if ( product.stock === 0 ) {
+    //         setCartActive( false );
+    //     }
+    // }, [ curColor, curSize, product ] )
 
     const wishlistHandler = ( e ) => {
         e.preventDefault();
@@ -149,127 +150,105 @@ function DetailOne( props ) {
                             <li>Detail</li>
                         </ul>
 
-                        <ProductNav product={ product } />
+                        {/* <ProductNav product={ product } /> */}
                     </div> : ''
             }
 
-            <h2 className="product-name">{ product.data.name }</h2>
+            <h2 className="product-name">{ product.name }</h2>
 
             <div className='product-meta'>
-                SKU: <span className='product-sku'>{ product.data.sku }</span>
-                CATEGORIES: <span className='product-brand'>
-                    {
-                        product.data.categories.map( ( item, index ) =>
-                            <React.Fragment key={ item.name + '-' + index }>
-                                <ALink href={ { pathname: '/shop', query: { category: item.slug } } }>
-                                    { item.name }
-                                </ALink>
-                                { index < product.data.categories.length - 1 ? ', ' : '' }
-                            </React.Fragment>
-                        ) }
+                SLUG: <span className='product-sku'>{ product.slug }</span>
+                CATEGORY: <span className='product-brand'>
+                <React.Fragment>
+                    <ALink href={ { pathname: '/shop', query: { category: product.category.slug } } }>
+                        { product.category.title }
+                    </ALink>
+                </React.Fragment>
                 </span>
             </div>
 
             <div className="product-price mb-2">
                 {
-                    product.data.price[ 0 ] !== product.data.price[ 1 ] ?
-                        product.data.variants.length === 0 || ( product.data.variants.length > 0 && !product.data.variants[ 0 ].price ) ?
+                    product.variants[0].price !== product.variants[0].sale_price ?
                             <>
-                                <ins className="new-price">${ toDecimal( product.data.price[ 0 ] ) }</ins>
-                                <del className="old-price">${ toDecimal( product.data.price[ 1 ] ) }</del>
+                                <ins className="new-price">${ toDecimal( product.variants[0].price ) }</ins>
+                                <del className="old-price">${ toDecimal( product.variants[0].sale_price ) }</del>
                             </>
-                            :
-                            < del className="new-price">${ toDecimal( product.data.price[ 0 ] ) } – ${ toDecimal( product.data.price[ 1 ] ) }</del>
-                        : <ins className="new-price">${ toDecimal( product.data.price[ 0 ] ) }</ins>
+                    :
+                    <>
+                        ${toDecimal( product.variants[0].price )} 
+                    </>
                 }
             </div>
 
             {
-                product.data.price[ 0 ] !== product.data.price[ 1 ] && product.data.variants.length === 0 ?
+                product.variants[0].price !== product.variants[0].sale_price && product.variants.length === 0 ?
                     <Countdown type={ 2 } /> : ''
             }
 
             <div className="ratings-container">
                 <div className="ratings-full">
-                    <span className="ratings" style={ { width: 20 * product.data.ratings + '%' } }></span>
-                    <span className="tooltiptext tooltip-top">{ toDecimal( product.data.ratings ) }</span>
+                    <span className="ratings" style={ { width: 20 * product.ratings + '%' } }></span>
+                    <span className="tooltiptext tooltip-top">{ toDecimal( product.ratings ?? 5 ) }</span>
                 </div>
 
-                <ALink href="#" className="rating-reviews">( { product.data.reviews } reviews )</ALink>
+                <ALink href="#" className="rating-reviews">( { product.reviews } reviews )</ALink>
             </div>
 
-            <p className="product-short-desc">{ product.data.short_description }</p>
+            <p className="product-short-desc">{ product.short_description }</p>
 
             <hr className="product-divider"></hr>
-
+            {product.long_description}
             {
                 isStickyCart ?
                     <div className="sticky-content fix-top product-sticky-content">
                         <div className="container">
                             <div className="sticky-product-details">
                                 <figure className="product-image">
-                                    <ALink href={ '/product/default/' + product.data.slug }>
-                                        <img src={ process.env.NEXT_PUBLIC_ASSET_URI + product.data.pictures[ 0 ].url } width="90" height="90"
+                                    <ALink href={ '/product/default/' + product.slug }>
+                                        <img src={ storjImage(product.pictures[ 0 ].bucket, product.pictures[0].key)} width="90" height="90"
                                             alt="Product" />
                                     </ALink>
                                 </figure>
                                 <div>
-                                    <h4 className="product-title"><ALink href={ '/product/default/' + product.data.slug }>{ product.data.name }</ALink></h4>
+                                    <h4 className="product-title"><ALink href={ '/product/default/' + product.slug }>{ product.name }</ALink></h4>
                                     <div className="product-info">
                                         <div className="product-price mb-0">
                                             {
-                                                curIndex > -1 && product.data.variants[ 0 ] ?
-                                                    product.data.variants[ curIndex ].price ?
-                                                        product.data.variants[ curIndex ].sale_price ?
-                                                            <>
-                                                                <ins className="new-price">${ toDecimal( product.data.variants[ curIndex ].sale_price ) }</ins>
-                                                                <del className="old-price">${ toDecimal( product.data.variants[ curIndex ].price ) }</del>
-                                                            </>
-                                                            :
-                                                            <>
-                                                                <ins className="new-price">${ toDecimal( product.data.variants[ curIndex ].price ) }</ins>
-                                                            </>
-                                                        : ""
-                                                    :
-                                                    product.data.price[ 0 ] !== product.data.price[ 1 ] ?
-                                                        product.data.variants.length === 0 ?
-                                                            <>
-                                                                <ins className="new-price">${ toDecimal( product.data.price[ 0 ] ) }</ins>
-                                                                <del className="old-price">${ toDecimal( product.data.price[ 1 ] ) }</del>
-                                                            </>
-                                                            :
-                                                            < del className="new-price">${ toDecimal( product.data.price[ 0 ] ) } – ${ toDecimal( product.data.price[ 1 ] ) }</del>
-                                                        : <ins className="new-price">${ toDecimal( product.data.price[ 0 ] ) }</ins>
+                                                <>
+                                                    <ins className="new-price">${ toDecimal( product.data.variants[0].price ) }</ins>
+                                                    <del className="old-price">${ toDecimal( product.data.variants[0].sale_price ) }</del>
+                                                </>
                                             }
                                         </div>
 
                                         <div className="ratings-container mb-0">
                                             <div className="ratings-full">
-                                                <span className="ratings" style={ { width: 20 * product.data.ratings + '%' } }></span>
-                                                <span className="tooltiptext tooltip-top">{ toDecimal( product.data.ratings ) }</span>
+                                                <span className="ratings" style={ { width: 20 * product.ratings + '%' } }></span>
+                                                <span className="tooltiptext tooltip-top">{ toDecimal( product.ratings ) }</span>
                                             </div>
 
-                                            <ALink href="#" className="rating-reviews">( { product.data.reviews } reviews )</ALink>
+                                            <ALink href="#" className="rating-reviews">( { product.reviews } reviews )</ALink>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="product-form product-qty pb-0">
+                            {/* <div className="product-form product-qty pb-0">
                                 <label className="d-none">QTY:</label>
                                 <div className="product-form-group">
                                     <Quantity max={ product.data.stock } product={ product } onChangeQty={ changeQty } />
                                     <button className={ `btn-product btn-cart text-normal ls-normal font-weight-semi-bold ${ cartActive ? '' : 'disabled' }` } onClick={ addToCartHandler }><i className='d-icon-bag'></i>Add to Cart</button>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     :
                     <div className="product-form product-qty pb-0">
-                        <label className="d-none">QTY:</label>
+                        {/* <label className="d-none">QTY:</label>
                         <div className="product-form-group">
                             <Quantity max={ product.data.stock } product={ product } onChangeQty={ changeQty } />
                             <button className={ `btn-product btn-cart text-normal ls-normal font-weight-semi-bold ${ cartActive ? '' : 'disabled' }` } onClick={ addToCartHandler }><i className='d-icon-bag'></i>Add to Cart</button>
-                        </div>
+                        </div> */}
                     </div>
             }
 

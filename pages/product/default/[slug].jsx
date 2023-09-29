@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import imagesLoaded from 'imagesloaded';
 
 import withApollo from '~/server/apolloClient';
-import { GET_PRODUCT } from '~/server/queries';
+import { GET_PRODUCT, GET_PRODUCT_BY_SLUG } from '~/server/queries';
 
 import OwlCarousel from '~/components/features/owl-carousel';
 
@@ -19,19 +19,19 @@ import { mainSlider17 } from '~/utils/data/carousel';
 
 function ProductDefault () {
     const slug = useRouter().query.slug;
-    const { data, loading, error } = useQuery( GET_PRODUCT, { variables: { slug } } );
+    const { data, loading, error } = useQuery( GET_PRODUCT_BY_SLUG, { variables: { slug } } );
     const [ loaded, setLoadingState ] = useState( false );
-    const product = {data: bestSellingProducts.find((item) => item.slug == slug)};
+    const product = data && data.productBySlug;
     // const related = data && data.product.related;
 
-    useEffect( () => {
-        if ( product.data )
-            imagesLoaded( 'main' ).on( 'done', function () {
-                setLoadingState( true );
-            } ).on( 'progress', function () {
-                setLoadingState( false );
-            } );
-    }, [ slug ] )
+    // useEffect( () => {
+    //     if ( product )
+    //         imagesLoaded( 'main' ).on( 'done', function () {
+    //             setLoadingState( true );
+    //         } ).on( 'progress', function () {
+    //             setLoadingState( false );
+    //         } );
+    // }, [ slug ] )
 
     return (
         <main className="main mt-6 single-product">
@@ -43,11 +43,11 @@ function ProductDefault () {
 
             {
                 product !== undefined ?
-                    <div className={ `page-content mb-10 pb-6 ${ loaded ? '' : 'd-none' }` } >
+                    <div className={ `page-content mb-10 pb-6 ${ !loading ? '' : 'd-none' }` } >
                         <div className="container vertical">
                             <div className="product product-single row mb-7">
                                 <div className="col-md-6 sticky-sidebar-wrapper">
-                                    <MediaOne product={ product.data } />
+                                    <MediaOne product={ product } />
                                 </div>
 
                                 <div className="col-md-6">
@@ -57,12 +57,12 @@ function ProductDefault () {
 
                             {/* <DescOne product={ product } /> */}
 
-                            <RelatedProducts products={ bestSellingProducts } />
+                            {/* <RelatedProducts products={ bestSellingProducts } /> */}
                         </div>
                     </div> : ''
             }
             {
-                loaded ? ''
+                !loading ? ''
                     :
                     <div className="skeleton-body container mb-10">
                         <div className="row mb-7">

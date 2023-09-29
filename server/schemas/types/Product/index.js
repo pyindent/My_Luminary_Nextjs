@@ -53,6 +53,7 @@ input UpdateProductInput {
 type Query {
   products(input: SearchProductsInput!): Products!
   product(_id: ID!): Product!
+  productBySlug(slug: String!): Product!
 }
 
 

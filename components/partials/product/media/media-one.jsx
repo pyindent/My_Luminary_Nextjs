@@ -9,6 +9,7 @@ import ThumbTwo from '~/components/partials/product/thumb/thumb-two';
 import MediaLightBox from '~/components/partials/product/light-box';
 
 import { mainSlider3 } from '~/utils/data/carousel';
+import { storjImage } from '~/server/StorjService';
 
 export default function MediaOne ( props ) {
     const { product } = props;
@@ -16,7 +17,7 @@ export default function MediaOne ( props ) {
     const [ isOpen, setOpenState ] = useState( false );
     const [ mediaRef, setMediaRef ] = useState( null );
 
-    let lgImages = product.large_pictures ? product.large_pictures : product.pictures;
+    let lgImages = product.pictures ?? product.pictures;
 
     useEffect( () => {
         setIndex( 0 );
@@ -91,11 +92,11 @@ export default function MediaOne ( props ) {
                 >
                     {
                         lgImages.map( ( image, index ) =>
-                            <div key={ image + '-' + index }>
+                            <div key={ image._id + '-' + index }>
                                 <Magnifier
-                                    imageSrc={ image.url }
+                                    imageSrc={ storjImage(image.bucket, image.key) }
                                     imageAlt="magnifier"
-                                    largeImageSrc={ image.url }
+                                    largeImageSrc={ storjImage(image.bucket, image.key) }
                                     dragToMove={ false }
                                     mouseActivation="hover"
                                     cursorStyleActive="crosshair"
@@ -107,11 +108,11 @@ export default function MediaOne ( props ) {
 
                 <ALink href="#" className="product-image-full" onClick={ openLightBox }><i className="d-icon-zoom"></i></ALink>
 
-                <ThumbOne product={ product } index={ index } onChangeIndex={ setIndexHandler } />
-                <ThumbTwo product={ product } index={ index } onChangeIndex={ setIndexHandler } />
+                {/* <ThumbOne product={ product } index={ index } onChangeIndex={ setIndexHandler } />
+                <ThumbTwo product={ product } index={ index } onChangeIndex={ setIndexHandler } /> */}
             </div>
 
-            <MediaLightBox images={ lgImages } isOpen={ isOpen } changeOpenState={ changeOpenState } index={ index } product={ product } />
+            {/* <MediaLightBox images={ lgImages } isOpen={ isOpen } changeOpenState={ changeOpenState } index={ index } product={ product } /> */}
         </>
     )
 }
