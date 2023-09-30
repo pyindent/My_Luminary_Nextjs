@@ -23,7 +23,7 @@ function LoginModal() {
     const logoutWithRedirect = () =>
     logout({
         logoutParams: {
-          returnTo: 'http://localhost:3000',
+          returnTo: process.env.NEXT_PUBLIC_URI,
         }
     });
 
