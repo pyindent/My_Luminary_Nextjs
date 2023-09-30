@@ -11,6 +11,7 @@ import { demoActions } from '~/store/demo';
 import { currentDemo } from '~/server/queries';
 
 import "~/public/sass/style.scss";
+import { Auth0ProviderWithHistory } from '~/server/auth0.js';
 
 const App = ({ Component, pageProps }) => {
     const store = useStore();
@@ -44,10 +45,13 @@ const App = ({ Component, pageProps }) => {
                     <meta name="description" content="Riode - React eCommerce Template" />
                     <meta name="author" content="D-THEMES" />
                 </Helmet>
+                
+                <Auth0ProviderWithHistory>
+                    <Layout>
+                            <Component {...pageProps} />
+                    </Layout>
+                </Auth0ProviderWithHistory>
 
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
             </PersistGate>
         </Provider>
     );

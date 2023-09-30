@@ -21,7 +21,7 @@ function CategorySection () {
                     <div className="row">
 
                         {!loading && categories.map(item =>                         
-                        <div className="col-xs-6 col-lg-3 mb-4">
+                        <div className="col-xs-6 col-lg-3 mb-4" key={item._id}>
                             <div className="category category-default1 category-absolute banner-radius overlay-zoom">
                                 <ALink href={ { pathname: '/shop', query: { category: item.slug } } }>
                                     <figure className="category-media">
