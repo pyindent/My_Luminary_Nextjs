@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import { useAuth0 } from '@auth0/auth0-react';
 import Modal from 'react-modal';
-
-import ALink from '~/components/features/custom-link';
 
 const customStyles = {
     overlay: {
@@ -27,9 +24,6 @@ function LoginModal() {
         }
     });
 
-    useEffect(()=>{
-        console.log(user);
-    }, [isAuthenticated])
     return (
         <>
         {

@@ -5,7 +5,8 @@ import Category from "./Category";
 import Brand from "./Brand";
 import Media from "./Media";
 import Variant from "./Variant"
+import User from "./User";
 
-const resolvers = [Product, Category, Brand, Media, Variant]
+const resolvers = [Product, Category, Brand, Media, Variant, User]
 
 export default mergeResolvers(resolvers)

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { useQuery } from "@apollo/react-hooks";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 // Import Apollo Server and Query
 import withApollo from '../server/apolloClient';
 import { GET_PRODUCTS } from '../server/queries';
@@ -20,6 +20,8 @@ import BrandSection from '~/components/partials/home/brand-section';
 import BlogSection from '~/components/partials/home/blog-section';
 import SmallCollection from '~/components/partials/product/small-collection';
 import { blogs } from '~/utils/data/tempdata'
+import { useAuth0 } from '@auth0/auth0-react';
+import { CREATE_USER } from '~/server/mutations';
 
 function HomePage() {
     const { data, loading, error } = useQuery( GET_PRODUCTS, { variables: { productsCount: 7 } } );
@@ -29,6 +31,16 @@ function HomePage() {
     const latest = data&&data?.products.products;
     const onSale = data&&data?.products.products;
     const posts = blogs;
+
+    const {user, isAuthenticated} = useAuth0();
+    const [createUser] = useMutation(CREATE_USER);
+
+    
+    useEffect(()=>{
+        if(user) {
+            createUser({variables:{...user}})
+        }
+    }, [isAuthenticated])
 
     return (
         <div className="main home">
