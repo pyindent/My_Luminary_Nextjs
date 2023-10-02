@@ -3,10 +3,14 @@ import { useRouter } from 'next/router';
 import ALink from '~/components/features/custom-link';
 
 import { mainMenu } from '~/utils/data/menu';
+import withApollo from '~/server/apolloClient';
+import { useQuery } from '@apollo/client';
+import { GET_CATEGORIES } from '~/server/queries';
 
 function MainMenu() {
     const pathname = useRouter().pathname;
-
+    const {data, loading} = useQuery(GET_CATEGORIES)
+    console.log(data)
     return (
         <nav className="main-nav">
             <ul className="menu">
@@ -19,11 +23,11 @@ function MainMenu() {
 
                     <ul>
                         {
-                            mainMenu.other.map( ( item, index ) => (
+                            data && data.categories.map( ( item, index ) => (
                                 <li key={ `other-${ item.title }` }>
                                     <ALink href={ '/shop/?category=' + item.slug }>
                                         { item.title }
-                                        { item.new ? <span className="tip tip-new">New</span> : "" }
+                                        { item?.new ? <span className="tip tip-new">New</span> : "" }
                                     </ALink>
                                 </li>
                             ) )
@@ -55,4 +59,4 @@ function MainMenu() {
     )
 }
 
-export default MainMenu;
+export default withApollo( { ssr: typeof window === 'undefined' } ) ( MainMenu );
