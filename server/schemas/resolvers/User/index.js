@@ -38,6 +38,14 @@ export default {
             } catch (e) {
                 throw new Error("Failed to delete User.");
             }
-        }
+        },
+        updateUser: async (_parent, _args, _context, _info) => {
+            try{
+                const result = await User.findByIdAndUpdate({_id:_args._id}, {$set:{..._args.input}})
+                return result
+            } catch (e) {
+                throw new Error("Failed to update User.")
+            }
+        },
     }
 }

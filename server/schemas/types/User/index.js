@@ -32,7 +32,7 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
-    name: String!
+    name: String
     family_name: String
     given_name: String
     nickname: String
@@ -43,5 +43,6 @@ input UpdateUserInput {
 type Mutation {
     createUser(input: CreateUserInput!): String!
     deleteUser(_id: ID!): String!
+    updateUser(_id: ID!, input: UpdateUserInput!): User!
 }
 `

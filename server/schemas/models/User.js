@@ -19,6 +19,11 @@ const User = mongoose.models.User || mongoose.model('User', new mongoose.Schema(
   nickname: {
     type: String
   },
+  role: {
+    type: String,
+    enum: ["customer", "driver", "agency", "admin"],
+    default: "customer", // Set default role as "customer"
+  },
   picture: {
     type: String
   },
