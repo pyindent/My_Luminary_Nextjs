@@ -28,7 +28,15 @@ export default {
                 return "Successfully Registered."
             }
             catch (e) {
-                throw new Error("Failed to Create User.");
+                throw new Error("Failed to create User.");
+            }
+        },
+        deleteUser: async (_parent, _args, _context, _info) => {
+            try {
+                await User.findByIdAndDelete({_id:_args._id})
+                return "Successfully Deleted!"
+            } catch (e) {
+                throw new Error("Failed to delete User.");
             }
         }
     }

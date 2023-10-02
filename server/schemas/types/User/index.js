@@ -21,6 +21,7 @@ type Query {
     user(_id: ID!): User!
     users: [User]!
 }
+
 input CreateUserInput {
     email: String!
     name: String!
@@ -41,5 +42,6 @@ input UpdateUserInput {
 
 type Mutation {
     createUser(input: CreateUserInput!): String!
+    deleteUser(_id: ID!): String!
 }
 `
