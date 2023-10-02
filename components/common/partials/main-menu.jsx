@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 
 import ALink from '~/components/features/custom-link';
 
-import { mainMenu } from '~/utils/data/menu';
 import withApollo from '~/server/apolloClient';
 import { useQuery } from '@apollo/client';
 import { GET_CATEGORIES } from '~/server/queries';

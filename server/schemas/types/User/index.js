@@ -6,14 +6,21 @@ type User {
     given_name: String
     nickname: String
     name: String
+    role: String
     picture: String
     locale: String
     password: String
     address: String
     phone_number: String
     email_verified: Boolean
+    created_at: String
+    updated_at: String
 }
 
+type Query {
+    user(_id: ID!): User!
+    users: [User]!
+}
 input CreateUserInput {
     email: String!
     name: String!
@@ -21,6 +28,15 @@ input CreateUserInput {
     given_name: String
     nickname: String
     picture: String
+}
+
+input UpdateUserInput {
+    name: String!
+    family_name: String
+    given_name: String
+    nickname: String
+    picture: String
+    role: String
 }
 
 type Mutation {

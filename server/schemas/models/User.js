@@ -37,6 +37,6 @@ const User = mongoose.models.User || mongoose.model('User', new mongoose.Schema(
   email_verified: {
     type: Boolean
   }
-}));
+}, {timestamps: true}));
 
 module.exports = User;
