@@ -19,6 +19,7 @@ type User {
 
 type Query {
     user(_id: ID!): User!
+    findbyEmail(email: String!): User!
     users: [User]!
 }
 

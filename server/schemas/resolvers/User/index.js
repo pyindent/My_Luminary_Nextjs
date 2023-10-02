@@ -14,7 +14,14 @@ export default {
             } catch (e) {
                 throw e;
             }
-        }
+        },
+        findbyEmail: async (_parent, _args, _context, _info) => {
+            try{
+                return await User.findOne({email: _args.email})
+            } catch (e) {
+                throw e;
+            }
+        } 
     },
     Mutation: {
         createUser: async (_parent, _args, _context, _info) => {
