@@ -37,9 +37,11 @@ function LoginModal() {
                 </>
             ) : (
                 <>
-                    <a className="login-link d-lg-show" href="#" onClick={ logoutWithRedirect }>
-                        <i className="d-icon-user"></i>Logout
+                    <a className="login-link d-lg-show" href="/pages/account">
+                        <i className="d-icon-user"></i>Account
                     </a>
+                    <span className="delimiter">/</span>
+                    <a className="register-link ml-0" onClick={ logoutWithRedirect } href="#">Log Out</a>
                 </>
             )
         }

@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Tabs, Tab, TabList, TabPanel } from 'react-tabs';
@@ -5,6 +6,9 @@ import { Tabs, Tab, TabList, TabPanel } from 'react-tabs';
 import ALink from '~/components/features/custom-link';
 
 function Account() {
+
+    const {user, isAuthenticated, loginWithRedirect, logout} = useAuth0();
+
     return (
         <main className="main account">
             <Helmet>
@@ -50,7 +54,7 @@ function Account() {
                         <div className="tab-content col-lg-9 col-md-8">
                             <TabPanel className="tab-pane dashboard">
                                 <p className="mb-0">
-                                    Hello <span>User</span> (not <span>User</span>? <ALink href="/" className="text-primary">Log out</ALink>)
+                                    Hello <span>{user && (user.name ? user.name : "customer")}</span>
 								</p>
                                 <p className="mb-8">
                                     From your account dashboard you can view your <ALink href="#" className="link-to-tab text-primary">recent orders</ALink>, manage your shipping and billing
@@ -152,21 +156,21 @@ function Account() {
                                     <div className="row">
                                         <div className="col-sm-6">
                                             <label>First Name *</label>
-                                            <input type="text" className="form-control" name="first_name" required />
+                                            <input type="text" className="form-control" name="first_name" value={user && (user?.family_name ? user?.family_name : "")} required />
                                         </div>
                                         <div className="col-sm-6">
                                             <label>Last Name *</label>
-                                            <input type="text" className="form-control" name="last_name" required />
+                                            <input type="text" className="form-control" name="last_name" value={user && (user?.given_name ? user?.given_name : "")} required />
                                         </div>
                                     </div>
 
                                     <label>Display Name *</label>
-                                    <input type="text" className="form-control mb-0" name="display_name" required />
+                                    <input type="text" className="form-control mb-0" name="display_name" value={user && (user?.name ? user?.name : "")} required />
                                     <small className="d-block form-text mb-7">This will be how your name will be displayed
 										in the account section and in reviews</small>
 
                                     <label>Email Address *</label>
-                                    <input type="email" className="form-control" name="email" required />
+                                    <input type="email" className="form-control" name="email" value={user && (user?.email ? user?.email:"")} required />
                                     <fieldset>
                                         <legend>Password Change</legend>
                                         <label>Current password (leave blank to leave unchanged)</label>

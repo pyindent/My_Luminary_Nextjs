@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Reveal from 'react-awesome-reveal';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import GoogleMapReact from 'google-map-react';
 
 import ALink from '~/components/features/custom-link';
