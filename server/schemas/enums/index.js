@@ -1,5 +1,5 @@
 // Enum for order_status
-export const OrderStatus = {
+export const ORDER_STATUS = {
     PAYMENT_PENDING: "payment-pending",
     PAYMENT_PROCESSING: "payment-processing",
     PAYMENT_SUCCESS: "payment-success",
@@ -7,7 +7,14 @@ export const OrderStatus = {
 };
   
 // Enum for payment_method
-export const PaymentMethod = {
+export const PAYMENT_METHOD = {
     CASH_ON_DELIVERY: "cash-on-delivery",
     BANK_TRANSFER: "bank-transfer"
 };
+
+export const USER_ROLE = {
+    ADMIN: "admin",
+    CUSTOMER: "customer",
+    DRIVER: "driver",
+    AGENCY: "agency"
+}

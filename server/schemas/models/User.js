@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const status = require('../enums');
+const { USER_ROLE } = status
 
 // Check if the 'User' model already exists
 const User = mongoose.models.User || mongoose.model('User', new mongoose.Schema({
@@ -21,8 +23,13 @@ const User = mongoose.models.User || mongoose.model('User', new mongoose.Schema(
   },
   role: {
     type: String,
-    enum: ["customer", "driver", "agency", "admin"],
-    default: "customer", // Set default role as "customer"
+    enum: [
+      USER_ROLE.CUSTOMER, 
+      USER_ROLE.DRIVER, 
+      USER_ROLE.AGENCY, 
+      USER_ROLE.ADMIN
+    ],
+    default: USER_ROLE.CUSTOMER, // Set default role as "customer"
   },
   picture: {
     type: String

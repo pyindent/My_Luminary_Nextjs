@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const status = require('../enums');
-const ORDER_STATUS = status.OrderStatus;
-const PAYMENT_METHOD = status.PaymentMethod;
+const { ORDER_STATUS, PAYMENT_METHOD } = status
 
 const Order = mongoose.models.Order || mongoose.model('Order', new mongoose.Schema({
   placed_on: { 
