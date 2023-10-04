@@ -9,13 +9,26 @@ const Order = mongoose.models.Order || mongoose.model('Order', new mongoose.Sche
   actual_delivery_date: { 
     type: String,  
   },
-  paid_amount: {
+  paid_total: {
     type: Number
   },
-  saved_amount: {
+  total: {
     type: Number
+  },
+  amount: {
+    type: Number
+  },
+  delivery_fee: {
+    type: Number
+  },
+  delivery_time: {
+    type: Date
   },
   customer_id: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'user'
+  },
+  driver_id: {
     type: mongoose.Schema.ObjectId,
     ref: 'user'
   },
