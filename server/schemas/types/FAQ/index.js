@@ -24,7 +24,7 @@ input UpdateFaqInput {
 
 type Mutation {
     createFaq(input: CreateFaqInput!): Faq!
-    deleteFaq(_id: ID!)
+    deleteFaq(_id: ID!): Faq!
     updateFaq(_id: ID!, input: UpdateFaqInput!): Faq!
 }
 `
