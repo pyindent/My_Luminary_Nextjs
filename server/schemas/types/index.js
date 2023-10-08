@@ -7,6 +7,7 @@ import Media from "./Media"
 import Tag from "./Tag"
 import Variant from "./Variant"
 import User from "./User"
+import Faq from "./FAQ"
 
 const typeDefs = [
     Product,
@@ -16,6 +17,7 @@ const typeDefs = [
     Tag,
     Variant,
     User,
+    Faq
 ]
 
 export default mergeTypeDefs(typeDefs)

@@ -18,3 +18,8 @@ export const USER_ROLE = {
     DRIVER: "driver",
     AGENCY: "agency"
 }
+
+export const FAQ_TYPE = {
+    CUSTOMER_MANAGEMENT: "customer_management",
+    OTHERS: "others",
+}
