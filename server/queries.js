@@ -151,6 +151,19 @@ query SideCategories {
     }
 }
 `
+
+export const GET_BRANDS = gql`
+    query Brands {
+        brands {
+            _id
+            slug
+            picture {
+                bucket
+                key
+            }
+        }
+    }
+`
 const PRODUCT_SIMPLE = gql`
     fragment ProductSimple on Product {
         name
