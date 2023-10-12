@@ -10,7 +10,23 @@ input CreateMediaInput {
   key: String!
 }
 
+type Medias {
+  medias: [Media!]
+  totalMedias: Int
+}
+
+input MediaPaginationInput {
+  limit: Int
+  skip: Int
+}
+
+type Query {
+  medias(input: MediaPaginationInput!): Medias!
+  media(_id: ID!): Media
+}
+
 type Mutation {
-  createMedia(input: CreateMediaInput!): Media
+  createMedia(input: CreateMediaInput!): Media!
+  deleteMedia(_id: ID!): Media!
 }
 `
