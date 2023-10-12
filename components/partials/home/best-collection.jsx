@@ -10,7 +10,6 @@ import { fadeIn } from '~/utils/data/keyframes';
 
 function BestCollection ( props ) {
     const { products, loading } = props;
-    console.log(products)
 
     return (
         <Reveal keyframes={ fadeIn } delay={ 300 } duration={ 1200 } triggerOnce>

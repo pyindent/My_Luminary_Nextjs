@@ -9,7 +9,6 @@ import { GET_CATEGORIES } from '~/server/queries';
 function MainMenu() {
     const pathname = useRouter().pathname;
     const {data, loading} = useQuery(GET_CATEGORIES)
-    console.log(data)
     return (
         <nav className="main-nav">
             <ul className="menu">

@@ -164,6 +164,18 @@ export const GET_BRANDS = gql`
         }
     }
 `
+
+export const GET_FAQS = gql`
+query Faqs {
+  faqs {
+    _id
+    question
+    answer
+    faq_type
+  }
+}
+`
+
 const PRODUCT_SIMPLE = gql`
     fragment ProductSimple on Product {
         name
