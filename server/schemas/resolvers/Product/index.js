@@ -27,7 +27,7 @@ export default {
         const { input } = _args;
 
         const limit = input.limit || 6;
-        const skip = input.skip || 0
+        const skip = input.skip * limit || 0
         const filter = input.filter || {};
 
         const { name, category } = filter;
