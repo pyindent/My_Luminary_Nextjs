@@ -7,6 +7,7 @@ import Media from "./Media";
 import Variant from "./Variant"
 import User from "./User";
 import Faq from "./Faq";
+import Post from "./Post";
 
 const resolvers = [
     Product,
@@ -15,7 +16,8 @@ const resolvers = [
     Media,
     Variant,
     User,
-    Faq
+    Faq,
+    Post
 ];
 
 export default mergeResolvers(resolvers)

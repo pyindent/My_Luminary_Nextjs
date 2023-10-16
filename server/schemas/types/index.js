@@ -8,6 +8,7 @@ import Tag from "./Tag"
 import Variant from "./Variant"
 import User from "./User"
 import Faq from "./FAQ"
+import Post from "./Post"
 
 const typeDefs = [
     Product,
@@ -17,7 +18,8 @@ const typeDefs = [
     Tag,
     Variant,
     User,
-    Faq
+    Faq,
+    Post
 ]
 
 export default mergeTypeDefs(typeDefs)
