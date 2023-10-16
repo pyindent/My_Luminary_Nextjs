@@ -2,7 +2,7 @@ export default `
 type Post {
     _id: ID!
     title: String!
-    main_image: String
+    main_image: Media
     content: String!
     author: User!
 }
@@ -14,7 +14,7 @@ type Query {
 
 input CreatePostInput {
     title: String!
-    main_image: String
+    main_image: ID
     content: String!
     author: ID!
 }

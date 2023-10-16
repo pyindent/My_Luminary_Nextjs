@@ -1,5 +1,6 @@
 import Post from "../../models/Post";
-import Faq from "../Faq";
+import User from "../../models/User";
+import Media from "../../models/Media";
 
 export default {
     Query: {
@@ -15,6 +16,24 @@ export default {
                 return await Post.find();
             } catch (e) {
                 throw e;
+            }
+        }
+    },
+    Post : {
+        author: async (_parent, _args, _context, _info) => {
+            try {
+                const _id = _parent.author
+                return await User.findById(_id)
+            } catch (e) {
+                throw new Error ("Failed to get author.")
+            }
+        },
+        main_image: async (_parent, _args, _context, _info) => {
+            try {
+                const _id = _parent.main_image
+                return await Media.findById(_id)
+            } catch (e) {
+                throw new Error ("Failed to get main image.")
             }
         }
     },
